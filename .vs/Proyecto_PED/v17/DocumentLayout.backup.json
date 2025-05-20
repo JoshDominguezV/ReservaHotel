@@ -3,32 +3,112 @@
   "WorkspaceRootPath": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\checkoutview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\checkoutview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\checkoutview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\checkoutview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\checkinview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\checkinview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\checkinview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\checkinview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\nuevareservaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\nuevareservaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\reservacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\reservacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\listareservasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\listareservasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\nuevareservaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\nuevareservaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\listareservasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\listareservasview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\usuariosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\usuariosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\habitacionesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\habitacionesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\clientesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\clientesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\reservacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\reservacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\usuariosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\usuariosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\habitacionesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\habitacionesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\clientesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\clientesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\views\\reservacionesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\reservacionesview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\auth\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:auth\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\auth\\splashscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:auth\\splashscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\reservacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\reservacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\auth\\splashscreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:auth\\splashscreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\models\\rolitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:models\\rolitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\models\\clienteitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +117,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\database\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:database\\conexionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\auth\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:auth\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\downloads\\proyecto_ped\\proyecto_ped\\views\\usuarioform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,8 +130,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA2wBcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T04:25:32.421Z",
+              "IsPinned": true
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -73,97 +162,260 @@
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.cs",
-              "RelativeDocumentMoniker": "Auth\\Login.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Auth\\Login.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T04:24:02.57Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Reservacion.cs",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\Reservacion.cs",
-              "RelativeDocumentMoniker": "Views\\Reservacion.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\Reservacion.cs",
-              "RelativeToolTip": "Views\\Reservacion.cs",
-              "ViewState": "AgIAAAwCAAAAAAAAAAAuwCQAAAAAAAAAAAAAAA==",
+              "Title": "CheckOutView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckOutView.cs",
+              "RelativeDocumentMoniker": "Views\\CheckOutView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckOutView.cs",
+              "RelativeToolTip": "Views\\CheckOutView.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T00:18:46.837Z",
+              "WhenOpened": "2025-05-13T03:39:58.164Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAUwBUAAAARAAAAAAAAAA==",
+              "Title": "CheckOutView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckOutView.cs",
+              "RelativeDocumentMoniker": "Views\\CheckOutView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckOutView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\CheckOutView.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T04:25:32.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SplashScreen.cs",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\SplashScreen.cs",
-              "RelativeDocumentMoniker": "Auth\\SplashScreen.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\SplashScreen.cs",
-              "RelativeToolTip": "Auth\\SplashScreen.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAowKkAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T03:27:51.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T03:39:54.976Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.cs",
-              "RelativeDocumentMoniker": "Auth\\Login.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.cs",
-              "RelativeToolTip": "Auth\\Login.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAowNQAAAABAAAAAAAAAA==",
+              "Title": "CheckInView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckInView.cs",
+              "RelativeDocumentMoniker": "Views\\CheckInView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckInView.cs",
+              "RelativeToolTip": "Views\\CheckInView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T23:33:25.904Z",
+              "WhenOpened": "2025-05-13T03:39:10.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CheckInView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckInView.cs",
+              "RelativeDocumentMoniker": "Views\\CheckInView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\CheckInView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\CheckInView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:38:57.493Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NuevaReservaView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\NuevaReservaView.cs",
+              "RelativeDocumentMoniker": "Views\\NuevaReservaView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\NuevaReservaView.cs",
+              "RelativeToolTip": "Views\\NuevaReservaView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:35:37.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ListaReservasView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ListaReservasView.cs",
+              "RelativeDocumentMoniker": "Views\\ListaReservasView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ListaReservasView.cs",
+              "RelativeToolTip": "Views\\ListaReservasView.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:35:31.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Reservacion.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\Reservacion.cs",
+              "RelativeDocumentMoniker": "Views\\Reservacion.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\Reservacion.cs",
+              "RelativeToolTip": "Views\\Reservacion.cs",
+              "ViewState": "AgIAAO8BAAAAAAAAAAAQwP0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:01:20.606Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "DashboardForm.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "Views\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\DashboardForm.cs",
+              "RelativeToolTip": "Views\\DashboardForm.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAhwAwBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:36:49.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ListaReservasView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ListaReservasView.cs",
+              "RelativeDocumentMoniker": "Views\\ListaReservasView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ListaReservasView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\ListaReservasView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:34:28.648Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NuevaReservaView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\NuevaReservaView.cs",
+              "RelativeDocumentMoniker": "Views\\NuevaReservaView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\NuevaReservaView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\NuevaReservaView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:34:13.062Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuariosView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\UsuariosView.cs",
+              "RelativeDocumentMoniker": "Views\\UsuariosView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\UsuariosView.cs",
+              "RelativeToolTip": "Views\\UsuariosView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:32:34.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HabitacionesView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\HabitacionesView.cs",
+              "RelativeDocumentMoniker": "Views\\HabitacionesView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\HabitacionesView.cs",
+              "RelativeToolTip": "Views\\HabitacionesView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:31:28.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ClientesView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ClientesView.cs",
+              "RelativeDocumentMoniker": "Views\\ClientesView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ClientesView.cs",
+              "RelativeToolTip": "Views\\ClientesView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:30:29.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Reservacion.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\Reservacion.cs",
               "RelativeDocumentMoniker": "Views\\Reservacion.cs",
               "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\Reservacion.cs [Dise\u00F1o]",
               "RelativeToolTip": "Views\\Reservacion.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T03:24:57.21Z",
+              "WhenOpened": "2025-05-10T04:01:03.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "InicioView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\InicioView.cs",
+              "RelativeDocumentMoniker": "Views\\InicioView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\InicioView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\InicioView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:37:59.932Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RolItem.cs",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Models\\RolItem.cs",
-              "RelativeDocumentMoniker": "Models\\RolItem.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Models\\RolItem.cs",
-              "RelativeToolTip": "Models\\RolItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "InicioView.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\InicioView.cs",
+              "RelativeDocumentMoniker": "Views\\InicioView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\InicioView.cs",
+              "RelativeToolTip": "Views\\InicioView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T22:13:29.284Z",
+              "WhenOpened": "2025-05-10T04:38:11.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
+              "Title": "DashboardForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "Views\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\DashboardForm.cs [Design]",
+              "RelativeToolTip": "Views\\DashboardForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:36:41.893Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": ".Designer.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\.Designer.cs",
+              "RelativeDocumentMoniker": "Views\\.Designer.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\.Designer.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\.Designer.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:30:08.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SplashScreen.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\SplashScreen.cs",
+              "RelativeDocumentMoniker": "Auth\\SplashScreen.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\SplashScreen.cs",
+              "RelativeToolTip": "Auth\\SplashScreen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-09T03:27:51.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.cs",
+              "RelativeDocumentMoniker": "Auth\\Login.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.cs",
+              "RelativeToolTip": "Auth\\Login.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAiwH4AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T23:33:25.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
               "Title": "UsuarioForm.cs",
               "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\UsuarioForm.cs",
               "RelativeDocumentMoniker": "Views\\UsuarioForm.cs",
@@ -171,12 +423,11 @@
               "RelativeToolTip": "Views\\UsuarioForm.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAUwDoAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T22:08:40.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T22:08:40.309Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 28,
               "Title": "ConexionBD.cs",
               "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Database\\ConexionBD.cs",
               "RelativeDocumentMoniker": "Database\\ConexionBD.cs",
@@ -184,12 +435,35 @@
               "RelativeToolTip": "Database\\ConexionBD.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAQwAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T00:09:00.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T00:09:00.657Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 23,
+              "Title": "Login.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.Designer.cs",
+              "RelativeDocumentMoniker": "Auth\\Login.Designer.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.Designer.cs",
+              "RelativeToolTip": "Auth\\Login.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T03:19:15.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SplashScreen.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\SplashScreen.Designer.cs",
+              "RelativeDocumentMoniker": "Auth\\SplashScreen.Designer.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\SplashScreen.Designer.cs",
+              "RelativeToolTip": "Auth\\SplashScreen.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:06:05.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "ClienteItem.cs",
               "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Models\\ClienteItem.cs",
               "RelativeDocumentMoniker": "Models\\ClienteItem.cs",
@@ -197,21 +471,54 @@
               "RelativeToolTip": "Models\\ClienteItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T03:30:23.301Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:30:23.301Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Login.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.Designer.cs",
-              "RelativeDocumentMoniker": "Auth\\Login.Designer.cs",
-              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Auth\\Login.Designer.cs",
-              "RelativeToolTip": "Auth\\Login.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "UsuariosView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\UsuariosView.cs",
+              "RelativeDocumentMoniker": "Views\\UsuariosView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\UsuariosView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\UsuariosView.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T03:19:15.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-10T04:39:30.127Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "HabitacionesView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\HabitacionesView.cs",
+              "RelativeDocumentMoniker": "Views\\HabitacionesView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\HabitacionesView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\HabitacionesView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:39:13.687Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ClientesView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ClientesView.cs",
+              "RelativeDocumentMoniker": "Views\\ClientesView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ClientesView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\ClientesView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:38:54.273Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ReservacionesView.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ReservacionesView.cs",
+              "RelativeDocumentMoniker": "Views\\ReservacionesView.cs",
+              "ToolTip": "C:\\Users\\josue\\Downloads\\Proyecto_PED\\Proyecto_PED\\Views\\ReservacionesView.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Views\\ReservacionesView.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T04:38:32.41Z"
             }
           ]
         }

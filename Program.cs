@@ -24,8 +24,9 @@ namespace Proyecto_PED
   
                 // Inicializar la aplicación
                 ApplicationConfiguration.Initialize();
-                //Application.Run(new SplashScreen());
-               Application.Run(new Reservacion("kevs","Administrador"));
+                Application.Run(new SplashScreen());
+                //Application.Run(new Reservacion("admin","admin")); 
+                //Application.Run(new MainDashboard("admin", "admin"));
             }
             catch (Exception ex)
             {

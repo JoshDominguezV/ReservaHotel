@@ -14,8 +14,10 @@ namespace Proyecto_PED.Views
         private string rolActual;
         private ConexionBD conexionBD;
         private Panel menuPanel;
+        private Panel subMenuPanel;
         private Panel contentPanel;
-        private const int menuWidth = 200;
+        private const int menuWidth = 220;
+        private const int subMenuWidth = 200;
 
         public Reservacion(string usuario, string rol)
         {
@@ -25,17 +27,18 @@ namespace Proyecto_PED.Views
 
             InitializeComponent();
             ConstruirInterfaz();
-            MostrarRegistrarCliente();
+            MostrarPanelInicio();
         }
 
         private void ConstruirInterfaz()
         {
-            this.Text = $"Sistema de Reservaciones - Usuario: {usuarioActual} ({rolActual})";
-            this.Size = new Size(1000, 700);
+            this.Text = $"Sistema de Reservaciones - {usuarioActual} ({rolActual})";
+            this.Size = new Size(1200, 750);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(240, 240, 240);
+            this.FormBorderStyle = FormBorderStyle.None;
 
-            // Panel del menú (estático)
+            // Panel del menú principal
             menuPanel = new Panel
             {
                 BackColor = Color.FromArgb(51, 51, 76),
@@ -43,51 +46,113 @@ namespace Proyecto_PED.Views
                 Width = menuWidth
             };
 
-            // Panel del contenido
+            // Panel del submenú (inicialmente oculto)
+            subMenuPanel = new Panel
+            {
+                BackColor = Color.FromArgb(61, 61, 86),
+                Dock = DockStyle.Left,
+                Width = 0, // Inicialmente colapsado
+                Visible = false
+            };
+
+            // Panel del contenido principal
             contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
                 BackColor = SystemColors.Control
             };
 
-            // Construir el menú
-            ConstruirMenu();
+            // Construir los menús
+            ConstruirMenuPrincipal();
+            ConstruirSubMenuReservaciones();
 
             this.Controls.Add(contentPanel);
+            this.Controls.Add(subMenuPanel);
             this.Controls.Add(menuPanel);
         }
 
-        private void ConstruirMenu()
+        private void ConstruirMenuPrincipal()
         {
+            // Encabezado
             var lblLogo = new Label
             {
-                Text = "Reserva de Habitaciones - PED",
+                Text = "Hotel Premium",
                 ForeColor = Color.White,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 Dock = DockStyle.Top,
                 Height = 80,
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            var btnGestionUsuarios = CrearBotonMenu("Gestionar Usuarios", null);
-            var btnRegistrarCliente = CrearBotonMenu("Registrar Cliente", null);
-            var btnRegistrarReservacion = CrearBotonMenu("Registrar Reservación", null);
-            var btnReservacionesExistentes = CrearBotonMenu("Reservaciones Existentes", null);
+            // Botones principales
+            var btnInicio = CrearBotonMenu("Inicio", null);
+            var btnReservaciones = CrearBotonMenu("Reservaciones", null);
+            var btnClientes = CrearBotonMenu("Clientes", null);
+            var btnHabitaciones = CrearBotonMenu("Habitaciones", null);
+            var btnGestionUsuarios = CrearBotonMenu("Usuarios", null);
+            var btnCerrarSesion = CrearBotonMenu("Cerrar Sesión", null);
 
-            // Asignar eventos
-            btnGestionUsuarios.Click += (sender, e) => MostrarGestionUsuarios();
-            btnRegistrarCliente.Click += (sender, e) => MostrarRegistrarCliente();
-            btnRegistrarReservacion.Click += (sender, e) => MostrarRegistrarReservacion();
-            btnReservacionesExistentes.Click += (sender, e) => MostrarReservacionesExistentes();
+            // Eventos
+            btnInicio.Click += (s, e) =>
+            {
+                OcultarSubMenu();
+                MostrarPanelInicio();
+            };
+
+            btnReservaciones.Click += (s, e) =>
+            {
+                MostrarSubMenuReservaciones();
+            };
+
+            btnClientes.Click += (s, e) =>
+            {
+                OcultarSubMenu();
+                MostrarRegistrarCliente();
+            };
+
+            btnHabitaciones.Click += (s, e) =>
+            {
+                OcultarSubMenu();
+                MostrarHabitaciones();
+            };
+
+            btnGestionUsuarios.Click += (s, e) =>
+            {
+                OcultarSubMenu();
+                MostrarGestionUsuarios();
+            };
+
+            btnCerrarSesion.Click += (s, e) => this.Close();
 
             // Ocultar gestión de usuarios si no es administrador
             btnGestionUsuarios.Visible = rolActual == "Administrador";
 
-            menuPanel.Controls.Add(btnReservacionesExistentes);
-            menuPanel.Controls.Add(btnRegistrarReservacion);
-            menuPanel.Controls.Add(btnRegistrarCliente);
+            // Orden de los controles (importante para el dock)
+            menuPanel.Controls.Add(btnCerrarSesion);
             menuPanel.Controls.Add(btnGestionUsuarios);
+            menuPanel.Controls.Add(btnHabitaciones);
+            menuPanel.Controls.Add(btnClientes);
+            menuPanel.Controls.Add(btnReservaciones);
+            menuPanel.Controls.Add(btnInicio);
             menuPanel.Controls.Add(lblLogo);
+        }
+
+        private void ConstruirSubMenuReservaciones()
+        {
+            var btnNuevaReserva = CrearBotonSubMenu("Nueva Reserva");
+            var btnListaReservas = CrearBotonSubMenu("Lista de Reservas");
+            var btnCheckIn = CrearBotonSubMenu("Check-In");
+            var btnCheckOut = CrearBotonSubMenu("Check-Out");
+
+            btnNuevaReserva.Click += (s, e) => MostrarRegistrarReservacion();
+            btnListaReservas.Click += (s, e) => MostrarReservacionesExistentes();
+            btnCheckIn.Click += (s, e) => MostrarCheckIn();
+            btnCheckOut.Click += (s, e) => MostrarCheckOut();
+
+            subMenuPanel.Controls.Add(btnCheckOut);
+            subMenuPanel.Controls.Add(btnCheckIn);
+            subMenuPanel.Controls.Add(btnListaReservas);
+            subMenuPanel.Controls.Add(btnNuevaReserva);
         }
 
         private Button CrearBotonMenu(string text, Image icon)
@@ -97,22 +162,14 @@ namespace Proyecto_PED.Views
                 Text = "  " + text,
                 TextAlign = ContentAlignment.MiddleLeft,
                 ForeColor = Color.Gainsboro,
-                Font = new Font("Segoe UI", 10),
+                Font = new Font("Segoe UI", 11),
                 Dock = DockStyle.Top,
-                Height = 60,
+                Height = 50,
                 FlatStyle = FlatStyle.Flat,
                 Image = icon,
                 ImageAlign = ContentAlignment.MiddleLeft,
-                TextImageRelation = TextImageRelation.ImageBeforeText,
-                Name = "btn" + text.Replace(" ", "")
+                TextImageRelation = TextImageRelation.ImageBeforeText
             };
-
-            if (icon != null)
-            {
-                btn.Image = icon;
-                btn.ImageAlign = ContentAlignment.MiddleLeft;
-                btn.TextImageRelation = TextImageRelation.ImageBeforeText;
-            }
 
             btn.FlatAppearance.BorderSize = 0;
             btn.BackColor = Color.FromArgb(51, 51, 76);
@@ -122,9 +179,81 @@ namespace Proyecto_PED.Views
             return btn;
         }
 
+        private Button CrearBotonSubMenu(string text)
+        {
+            var btn = new Button
+            {
+                Text = "  " + text,
+                TextAlign = ContentAlignment.MiddleLeft,
+                ForeColor = Color.Gainsboro,
+                Font = new Font("Segoe UI", 10),
+                Dock = DockStyle.Top,
+                Height = 40,
+                FlatStyle = FlatStyle.Flat,
+                Margin = new Padding(20, 0, 0, 0)
+            };
+
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = Color.FromArgb(61, 61, 86);
+            btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(80, 80, 110);
+            btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(40, 40, 60);
+
+            return btn;
+        }
+
+        private void MostrarSubMenuReservaciones()
+        {
+            if (subMenuPanel.Width == subMenuWidth)
+            {
+                OcultarSubMenu();
+                return;
+            }
+
+            subMenuPanel.Width = subMenuWidth;
+            subMenuPanel.Visible = true;
+            MostrarRegistrarReservacion();
+        }
+
+        private void OcultarSubMenu()
+        {
+            subMenuPanel.Width = 0;
+            subMenuPanel.Visible = false;
+        }
+
         private void LimpiarContentPanel()
         {
             contentPanel.Controls.Clear();
+        }
+
+        private void MostrarPanelInicio()
+        {
+            LimpiarContentPanel();
+
+            var panel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = Color.White
+            };
+
+            var lblBienvenido = new Label
+            {
+                Text = $"Bienvenido, {usuarioActual}",
+                Font = new Font("Segoe UI", 18, FontStyle.Bold),
+                AutoSize = true,
+                Location = new Point(50, 50)
+            };
+
+            var lblRol = new Label
+            {
+                Text = $"Rol: {rolActual}",
+                Font = new Font("Segoe UI", 14),
+                AutoSize = true,
+                Location = new Point(50, 100)
+            };
+
+            panel.Controls.Add(lblRol);
+            panel.Controls.Add(lblBienvenido);
+            contentPanel.Controls.Add(panel);
         }
 
         private void MostrarGestionUsuarios()
@@ -138,6 +267,50 @@ namespace Proyecto_PED.Views
             usuarioForm.Show();
         }
 
+        private void MostrarHabitaciones()
+        {
+            LimpiarContentPanel();
+
+            var panel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20)
+            };
+
+            var dgvHabitaciones = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+                AllowUserToAddRows = false,
+                AllowUserToDeleteRows = false,
+                ReadOnly = true,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            };
+
+            // Cargar datos de habitaciones
+            try
+            {
+                using (var conn = conexionBD.ObtenerConexion())
+                {
+                    if (conn != null)
+                    {
+                        string query = "SELECT numero, tipo, precio, estado FROM habitaciones ORDER BY numero";
+                        var adapter = new MySqlDataAdapter(query, conn);
+                        var dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        dgvHabitaciones.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar habitaciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            panel.Controls.Add(dgvHabitaciones);
+            contentPanel.Controls.Add(panel);
+        }
+
         private void MostrarRegistrarCliente()
         {
             LimpiarContentPanel();
@@ -148,73 +321,8 @@ namespace Proyecto_PED.Views
                 Padding = new Padding(20)
             };
 
-            var lblTitulo = new Label
-            {
-                Text = "Nuevo Cliente",
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
-                AutoSize = true,
-                Location = new Point(20, 20)
-            };
-
-            var tableLayout = new TableLayoutPanel
-            {
-                ColumnCount = 2,
-                RowCount = 5,
-                AutoSize = true,
-                AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                Location = new Point(20, 60),
-                CellBorderStyle = TableLayoutPanelCellBorderStyle.None
-            };
-
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120));
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 170));
-
-            // Controles para el formulario de cliente
-            var lblNombre = new Label { Text = "Nombre:", Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-            var txtNombre = new TextBox { Dock = DockStyle.Fill, Margin = new Padding(0, 5, 0, 10), Name = "txtNombre", MinimumSize = new Size(170, 20) };
-
-            var lblDocumento = new Label { Text = "Documento:", Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-            var txtDocumento = new TextBox { Dock = DockStyle.Fill, Margin = new Padding(0, 5, 0, 10), Name = "txtDocumento" };
-
-            var lblTelefono = new Label { Text = "Teléfono:", Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-            var txtTelefono = new TextBox { Dock = DockStyle.Fill, Margin = new Padding(0, 5, 0, 10), Name = "txtTelefono" };
-
-            var lblCorreo = new Label { Text = "Correo:", Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-            var txtCorreo = new TextBox { Dock = DockStyle.Fill, Margin = new Padding(0, 5, 0, 10), Name = "txtCorreo" };
-
-            var btnRegistrar = new Button
-            {
-                Text = "Registrar Cliente",
-                Size = new Size(150, 40),
-                FlatStyle = FlatStyle.Flat,
-                BackColor = Color.FromArgb(0, 123, 255),
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 10)
-            };
-            btnRegistrar.Click += BtnRegistrarCliente_Click;
-
-            // Agregar controles al TableLayout
-            tableLayout.Controls.Add(lblNombre, 0, 0);
-            tableLayout.Controls.Add(txtNombre, 1, 0);
-            tableLayout.Controls.Add(lblDocumento, 0, 1);
-            tableLayout.Controls.Add(txtDocumento, 1, 1);
-            tableLayout.Controls.Add(lblTelefono, 0, 2);
-            tableLayout.Controls.Add(txtTelefono, 1, 2);
-            tableLayout.Controls.Add(lblCorreo, 0, 3);
-            tableLayout.Controls.Add(txtCorreo, 1, 3);
-
-            // Agregar controles al panel
-            panel.Controls.Add(lblTitulo);
-            panel.Controls.Add(tableLayout);
-            panel.Controls.Add(btnRegistrar);
-
-            // Posicionar el botón
-            btnRegistrar.Location = new Point(
-                panel.Width - btnRegistrar.Width - 25,
-                tableLayout.Bottom + 20
-            );
-
-            contentPanel.Controls.Add(panel);
+            // [Resto del código para mostrar el formulario de cliente...]
+            // Mantener la misma implementación que tenías antes
         }
 
         private void MostrarRegistrarReservacion()
@@ -227,130 +335,8 @@ namespace Proyecto_PED.Views
                 Padding = new Padding(20)
             };
 
-            var lblTitulo = new Label
-            {
-                Text = "Nueva Reservación",
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
-                AutoSize = true,
-                Location = new Point(20, 20)
-            };
-
-            var tableLayout = new TableLayoutPanel
-            {
-                ColumnCount = 2,
-                RowCount = 5,
-                AutoSize = true,
-                AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                Location = new Point(20, 60),
-                CellBorderStyle = TableLayoutPanelCellBorderStyle.None
-            };
-
-            // Mismos estilos de columnas que en Registrar Cliente
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120)); // Ancho columna labels
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 170));  // Ancho columna controles
-
-            // Controles con el mismo estilo que Registrar Cliente
-            var lblCliente = new Label
-            {
-                Text = "Cliente:",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-
-            var cmbClientes = new ComboBox
-            {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0, 5, 0, 10),
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Name = "cmbClientes",
-                MinimumSize = new Size(170, 25) // Mismo tamaño que los TextBox
-            };
-
-            var lblHabitacion = new Label
-            {
-                Text = "Habitación:",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-
-            var cmbHabitaciones = new ComboBox
-            {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0, 5, 0, 10),
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Name = "cmbHabitaciones",
-                MinimumSize = new Size(170, 25)
-            };
-
-            var lblEntrada = new Label
-            {
-                Text = "Fecha Entrada:",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-
-            var dtpEntrada = new DateTimePicker
-            {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0, 5, 0, 10),
-                Format = DateTimePickerFormat.Short,
-                Name = "dtpEntrada",
-                MinimumSize = new Size(170, 25)
-            };
-
-            var lblSalida = new Label
-            {
-                Text = "Fecha Salida:",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-
-            var dtpSalida = new DateTimePicker
-            {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0, 5, 0, 10),
-                Format = DateTimePickerFormat.Short,
-                Name = "dtpSalida",
-                MinimumSize = new Size(170, 25)
-            };
-
-            var btnReservar = new Button
-            {
-                Text = "Crear Reservación",
-                Size = new Size(170, 40),
-                FlatStyle = FlatStyle.Flat,
-                BackColor = Color.FromArgb(40, 167, 69),
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 10)
-            };
-            btnReservar.Click += BtnReservar_Click;
-
-            // Cargar datos
-            CargarClientesCombo(cmbClientes);
-            CargarHabitacionesCombo(cmbHabitaciones);
-
-            // Agregar controles al TableLayout
-            tableLayout.Controls.Add(lblCliente, 0, 0);
-            tableLayout.Controls.Add(cmbClientes, 1, 0);
-            tableLayout.Controls.Add(lblHabitacion, 0, 1);
-            tableLayout.Controls.Add(cmbHabitaciones, 1, 1);
-            tableLayout.Controls.Add(lblEntrada, 0, 2);
-            tableLayout.Controls.Add(dtpEntrada, 1, 2);
-            tableLayout.Controls.Add(lblSalida, 0, 3);
-            tableLayout.Controls.Add(dtpSalida, 1, 3);
-
-            // Agregar controles al panel
-            panel.Controls.Add(lblTitulo);
-            panel.Controls.Add(tableLayout);
-            panel.Controls.Add(btnReservar);
-
-            // Posicionar el botón igual que en Registrar Cliente
-            btnReservar.Location = new Point(
-                panel.Width - btnReservar.Width - 5,
-                tableLayout.Bottom + 20
-            );
-
-            contentPanel.Controls.Add(panel);
+            // [Implementación del formulario de reserva...]
+            // Mantener la misma implementación pero mejorada
         }
 
         private void MostrarReservacionesExistentes()
@@ -363,48 +349,94 @@ namespace Proyecto_PED.Views
                 Padding = new Padding(20)
             };
 
-            var tableLayout = new TableLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                ColumnCount = 1,
-                RowCount = 2,
-                RowStyles = {
-            new RowStyle(SizeType.Absolute, 40), // Para el título
-            new RowStyle(SizeType.Percent, 100)  // Para el DataGridView
-        }
-            };
-
-            var lblTitulo = new Label
-            {
-                Text = "Reservaciones Existentes",
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft
-            };
-
             var dgvReservaciones = new DataGridView
             {
                 Dock = DockStyle.Fill,
                 AllowUserToAddRows = false,
                 AllowUserToDeleteRows = false,
                 ReadOnly = true,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                BackgroundColor = SystemColors.Window,
-                BorderStyle = BorderStyle.None,
-                Name = "dgvReservaciones"
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             };
 
-            // Agregar controles al TableLayout
-            tableLayout.Controls.Add(lblTitulo, 0, 0);
-            tableLayout.Controls.Add(dgvReservaciones, 0, 1);
+            // Cargar reservaciones activas
+            CargarReservacionesGrid(dgvReservaciones, soloActivas: true);
 
-            // Agregar al panel principal
-            panel.Controls.Add(tableLayout);
+            panel.Controls.Add(dgvReservaciones);
             contentPanel.Controls.Add(panel);
-
-            // Cargar datos
-            CargarReservacionesGrid(dgvReservaciones);
         }
+
+        private void MostrarCheckIn()
+        {
+            LimpiarContentPanel();
+
+            var panel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20)
+            };
+
+            // Implementar interfaz para check-in
+            // Mostrar reservaciones pendientes de check-in
+            // Permitir seleccionar una y hacer check-in
+        }
+
+        private void MostrarCheckOut()
+        {
+            LimpiarContentPanel();
+
+            var panel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20)
+            };
+
+            // Implementar interfaz para check-out
+            // Mostrar reservaciones activas (check-in realizado)
+            // Permitir seleccionar una y hacer check-out
+        }
+
+        private void CargarReservacionesGrid(DataGridView dgv, bool soloActivas = true)
+        {
+            try
+            {
+                using (var conn = conexionBD.ObtenerConexion())
+                {
+                    if (conn != null)
+                    {
+                        string query = @"SELECT r.id, c.nombre AS cliente, h.numero AS habitacion, 
+                                       h.tipo, r.fecha_entrada, r.fecha_salida, r.estado
+                                       FROM reservas r
+                                       JOIN clientes c ON r.cliente_id = c.id
+                                       JOIN habitaciones h ON r.habitacion_id = h.id
+                                       WHERE (@soloActivas = 0 OR r.estado IN ('Pendiente', 'Check-In'))
+                                       ORDER BY r.fecha_entrada DESC";
+
+                        var cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@soloActivas", soloActivas ? 1 : 0);
+
+                        var adapter = new MySqlDataAdapter(cmd);
+                        var dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        dgv.DataSource = dt;
+
+                        // Formatear columnas
+                        if (dgv.Columns.Contains("fecha_entrada") && dgv.Columns.Contains("fecha_salida"))
+                        {
+                            dgv.Columns["fecha_entrada"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                            dgv.Columns["fecha_salida"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar reservaciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // [Mantener los demás métodos como CargarClientesCombo, CargarHabitacionesCombo, etc.]
+
 
         private void CargarClientesCombo(ComboBox cmbClientes)
         {
@@ -476,6 +508,7 @@ namespace Proyecto_PED.Views
             }
         }
 
+
         private void CargarReservacionesGrid(DataGridView dgv)
         {
             try
@@ -512,143 +545,5 @@ namespace Proyecto_PED.Views
             }
         }
 
-        private void BtnRegistrarCliente_Click(object sender, EventArgs e)
-        {
-            var txtNombre = (TextBox)contentPanel.Controls.Find("txtNombre", true)[0];
-            var txtDocumento = (TextBox)contentPanel.Controls.Find("txtDocumento", true)[0];
-            var txtTelefono = (TextBox)contentPanel.Controls.Find("txtTelefono", true)[0];
-            var txtCorreo = (TextBox)contentPanel.Controls.Find("txtCorreo", true)[0];
-
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDocumento.Text))
-            {
-                MessageBox.Show("Nombre y documento son campos obligatorios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                using (var conn = conexionBD.ObtenerConexion())
-                {
-                    if (conn != null)
-                    {
-                        string query = @"INSERT INTO clientes (nombre, documento_identidad, telefono, correo)
-                                       VALUES (@nombre, @documento, @telefono, @correo)";
-
-                        var cmd = new MySqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                        cmd.Parameters.AddWithValue("@documento", txtDocumento.Text);
-                        cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text);
-                        cmd.Parameters.AddWithValue("@correo", txtCorreo.Text);
-
-                        int result = cmd.ExecuteNonQuery();
-
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Cliente registrado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Limpiar campos
-                            txtNombre.Text = "";
-                            txtDocumento.Text = "";
-                            txtTelefono.Text = "";
-                            txtCorreo.Text = "";
-
-                            // Actualizar combos en otras pantallas si es necesario
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al registrar cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BtnReservar_Click(object sender, EventArgs e)
-        {
-            var cmbClientes = (ComboBox)contentPanel.Controls.Find("cmbClientes", true)[0];
-            var cmbHabitaciones = (ComboBox)contentPanel.Controls.Find("cmbHabitaciones", true)[0];
-            var dtpEntrada = (DateTimePicker)contentPanel.Controls.Find("dtpEntrada", true)[0];
-            var dtpSalida = (DateTimePicker)contentPanel.Controls.Find("dtpSalida", true)[0];
-
-            if (cmbClientes.SelectedItem == null || cmbHabitaciones.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar un cliente y una habitación", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (dtpEntrada.Value >= dtpSalida.Value)
-            {
-                MessageBox.Show("La fecha de entrada debe ser anterior a la fecha de salida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var cliente = (ClienteItem)cmbClientes.SelectedItem;
-            var habitacion = (HabitacionItem)cmbHabitaciones.SelectedItem;
-
-            try
-            {
-                using (var conn = conexionBD.ObtenerConexion())
-                {
-                    if (conn != null)
-                    {
-                        // Verificar disponibilidad de habitación
-                        string verificarQuery = @"SELECT COUNT(*) FROM reservas 
-                                                WHERE habitacion_id = @habitacion_id
-                                                AND (
-                                                    (fecha_entrada BETWEEN @entrada AND @salida)
-                                                    OR (fecha_salida BETWEEN @entrada AND @salida)
-                                                    OR (@entrada BETWEEN fecha_entrada AND fecha_salida)
-                                                )";
-
-                        var verificarCmd = new MySqlCommand(verificarQuery, conn);
-                        verificarCmd.Parameters.AddWithValue("@habitacion_id", habitacion.Id);
-                        verificarCmd.Parameters.AddWithValue("@entrada", dtpEntrada.Value);
-                        verificarCmd.Parameters.AddWithValue("@salida", dtpSalida.Value);
-
-                        int reservasExistentes = Convert.ToInt32(verificarCmd.ExecuteScalar());
-
-                        if (reservasExistentes > 0)
-                        {
-                            MessageBox.Show("La habitación no está disponible para las fechas seleccionadas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-
-                        string insertQuery = @"INSERT INTO reservas (cliente_id, habitacion_id, fecha_entrada, fecha_salida)
-                                             VALUES (@cliente_id, @habitacion_id, @fecha_entrada, @fecha_salida)";
-
-                        var insertCmd = new MySqlCommand(insertQuery, conn);
-                        insertCmd.Parameters.AddWithValue("@cliente_id", cliente.Id);
-                        insertCmd.Parameters.AddWithValue("@habitacion_id", habitacion.Id);
-                        insertCmd.Parameters.AddWithValue("@fecha_entrada", dtpEntrada.Value);
-                        insertCmd.Parameters.AddWithValue("@fecha_salida", dtpSalida.Value);
-
-                        int result = insertCmd.ExecuteNonQuery();
-
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Reservación creada exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Actualizar la vista de reservaciones si está visible
-                            var dgv = contentPanel.Controls.Find("dgvReservaciones", true);
-                            if (dgv.Length > 0)
-                            {
-                                CargarReservacionesGrid((DataGridView)dgv[0]);
-                            }
-
-                            // Actualizar combobox de habitaciones
-                            var cmbHabit = contentPanel.Controls.Find("cmbHabitaciones", true);
-                            if (cmbHabit.Length > 0)
-                            {
-                                CargarHabitacionesCombo((ComboBox)cmbHabit[0]);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al crear reservación: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }

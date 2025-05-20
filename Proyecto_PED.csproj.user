@@ -7,10 +7,43 @@
     <Compile Update="Auth\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CheckInView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CheckOutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ClientesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\HabitacionesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\InicioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\ListaReservasView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\NuevaReservaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Reservacion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ReservacionesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\UsuarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UsuariosView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

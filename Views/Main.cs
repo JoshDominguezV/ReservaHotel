@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
-using Proyecto_PED.Models;
+using Proyecto_PED.Views;
 
 namespace Proyecto_PED.Views
 {
@@ -27,11 +26,12 @@ namespace Proyecto_PED.Views
 
             InitializeComponent();
             ConstruirInterfaz();
-            MostrarPanelInicio();
+            MostrarVistaInicio();
         }
 
         private void ConstruirInterfaz()
         {
+            // Configuración básica del formulario Menu
             this.Text = $"Sistema de Reservaciones - {usuarioActual} ({rolActual})";
             this.Size = new Size(1200, 750);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -51,7 +51,7 @@ namespace Proyecto_PED.Views
             {
                 BackColor = Color.FromArgb(61, 61, 86),
                 Dock = DockStyle.Left,
-                Width = 0, // Inicialmente colapsado
+                Width = 0,
                 Visible = false
             };
 
@@ -93,41 +93,15 @@ namespace Proyecto_PED.Views
             var btnCerrarSesion = CrearBotonMenu("Cerrar Sesión", null);
 
             // Eventos
-            btnInicio.Click += (s, e) =>
-            {
-                OcultarSubMenu();
-                MostrarPanelInicio();
-            };
-
-            btnReservaciones.Click += (s, e) =>
-            {
-                MostrarSubMenuReservaciones();
-            };
-
-            btnClientes.Click += (s, e) =>
-            {
-                OcultarSubMenu();
-                MostrarRegistrarCliente();
-            };
-
-            btnHabitaciones.Click += (s, e) =>
-            {
-                OcultarSubMenu();
-                MostrarHabitaciones();
-            };
-
-            btnGestionUsuarios.Click += (s, e) =>
-            {
-                OcultarSubMenu();
-                MostrarGestionUsuarios();
-            };
-
+            btnInicio.Click += (s, e) => MostrarVistaInicio();
+            btnReservaciones.Click += (s, e) => MostrarSubMenuReservaciones();
+            btnGestionUsuarios.Click += (s, e) => MostrarVistaUsuarios();
             btnCerrarSesion.Click += (s, e) => this.Close();
 
             // Ocultar gestión de usuarios si no es administrador
             btnGestionUsuarios.Visible = rolActual == "Administrador";
 
-            // Orden de los controles (importante para el dock)
+            // Orden de los controles
             menuPanel.Controls.Add(btnCerrarSesion);
             menuPanel.Controls.Add(btnGestionUsuarios);
             menuPanel.Controls.Add(btnHabitaciones);
@@ -144,10 +118,7 @@ namespace Proyecto_PED.Views
             var btnCheckIn = CrearBotonSubMenu("Check-In");
             var btnCheckOut = CrearBotonSubMenu("Check-Out");
 
-            btnNuevaReserva.Click += (s, e) => MostrarRegistrarReservacion();
-            btnListaReservas.Click += (s, e) => MostrarReservacionesExistentes();
-            btnCheckIn.Click += (s, e) => MostrarCheckIn();
-            btnCheckOut.Click += (s, e) => MostrarCheckOut();
+            btnCheckIn.Click += (s, e) => MostrarVistaCheckIn();
 
             subMenuPanel.Controls.Add(btnCheckOut);
             subMenuPanel.Controls.Add(btnCheckIn);
@@ -157,7 +128,7 @@ namespace Proyecto_PED.Views
 
         private Button CrearBotonMenu(string text, Image icon)
         {
-            var btn = new Button
+            return new Button
             {
                 Text = "  " + text,
                 TextAlign = ContentAlignment.MiddleLeft,
@@ -168,20 +139,19 @@ namespace Proyecto_PED.Views
                 FlatStyle = FlatStyle.Flat,
                 Image = icon,
                 ImageAlign = ContentAlignment.MiddleLeft,
-                TextImageRelation = TextImageRelation.ImageBeforeText
+                TextImageRelation = TextImageRelation.ImageBeforeText,
+                FlatAppearance = {
+                    BorderSize = 0,
+                    MouseOverBackColor = Color.FromArgb(70, 70, 100),
+                    MouseDownBackColor = Color.FromArgb(30, 30, 50)
+                },
+                BackColor = Color.FromArgb(51, 51, 76)
             };
-
-            btn.FlatAppearance.BorderSize = 0;
-            btn.BackColor = Color.FromArgb(51, 51, 76);
-            btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 70, 100);
-            btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(30, 30, 50);
-
-            return btn;
         }
 
         private Button CrearBotonSubMenu(string text)
         {
-            var btn = new Button
+            return new Button
             {
                 Text = "  " + text,
                 TextAlign = ContentAlignment.MiddleLeft,
@@ -190,28 +160,69 @@ namespace Proyecto_PED.Views
                 Dock = DockStyle.Top,
                 Height = 40,
                 FlatStyle = FlatStyle.Flat,
-                Margin = new Padding(20, 0, 0, 0)
+                Margin = new Padding(20, 0, 0, 0),
+                FlatAppearance = {
+                    BorderSize = 0,
+                    MouseOverBackColor = Color.FromArgb(80, 80, 110),
+                    MouseDownBackColor = Color.FromArgb(40, 40, 60)
+                },
+                BackColor = Color.FromArgb(61, 61, 86)
             };
-
-            btn.FlatAppearance.BorderSize = 0;
-            btn.BackColor = Color.FromArgb(61, 61, 86);
-            btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(80, 80, 110);
-            btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(40, 40, 60);
-
-            return btn;
         }
 
         private void MostrarSubMenuReservaciones()
         {
-            if (subMenuPanel.Width == subMenuWidth)
-            {
-                OcultarSubMenu();
-                return;
-            }
+            subMenuPanel.Width = subMenuPanel.Width == subMenuWidth ? 0 : subMenuWidth;
+            subMenuPanel.Visible = subMenuPanel.Width > 0;
+        }
 
-            subMenuPanel.Width = subMenuWidth;
-            subMenuPanel.Visible = true;
-            MostrarRegistrarReservacion();
+        private void MostrarVistaInicio()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var inicioView = new InicioView(usuarioActual, rolActual);
+            CargarVistaEnPanel(inicioView);
+        }
+
+        private void MostrarVistaUsuarios()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var usuariosView = new UsuariosView(usuarioActual, rolActual);
+            CargarVistaEnPanel(usuariosView);
+        }
+
+        private void MostrarVistaCheckIn()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var checkInView = new CheckInView(conexionBD, ObtenerIdUsuarioActual());
+            CargarVistaEnPanel(checkInView);
+        }
+
+        private void CargarVistaEnPanel(Form vista)
+        {
+            vista.TopLevel = false;
+            vista.FormBorderStyle = FormBorderStyle.None;
+            vista.Dock = DockStyle.Fill;
+            contentPanel.Controls.Add(vista);
+            vista.Show();
+        }
+
+        private void LimpiarContentPanel()
+        {
+            foreach (Control control in contentPanel.Controls)
+            {
+                if (control is Form form)
+                {
+                    form.Close();
+                    form.Dispose();
+                }
+            }
+            contentPanel.Controls.Clear();
         }
 
         private void OcultarSubMenu()
@@ -220,184 +231,7 @@ namespace Proyecto_PED.Views
             subMenuPanel.Visible = false;
         }
 
-        private void LimpiarContentPanel()
-        {
-            contentPanel.Controls.Clear();
-        }
-
-        private void MostrarPanelInicio()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.White
-            };
-
-            var lblBienvenido = new Label
-            {
-                Text = $"Bienvenido, {usuarioActual}",
-                Font = new Font("Segoe UI", 18, FontStyle.Bold),
-                AutoSize = true,
-                Location = new Point(50, 50)
-            };
-
-            var lblRol = new Label
-            {
-                Text = $"Rol: {rolActual}",
-                Font = new Font("Segoe UI", 14),
-                AutoSize = true,
-                Location = new Point(50, 100)
-            };
-
-            panel.Controls.Add(lblRol);
-            panel.Controls.Add(lblBienvenido);
-            contentPanel.Controls.Add(panel);
-        }
-
-        private void MostrarGestionUsuarios()
-        {
-            LimpiarContentPanel();
-            var usuarioView = new UsuariosView(usuarioActual, rolActual);
-            usuarioView.TopLevel = false;
-            usuarioView.FormBorderStyle = FormBorderStyle.None;
-            usuarioView.Dock = DockStyle.Fill;
-            contentPanel.Controls.Add(usuarioView);
-            usuarioView.Show();
-        }
-
-
-
-        private void MostrarHabitaciones()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            var dgvHabitaciones = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            };
-
-            // Cargar datos de habitaciones
-            try
-            {
-                using (var conn = conexionBD.ObtenerConexion())
-                {
-                    if (conn != null)
-                    {
-                        string query = "SELECT numero, tipo, precio, estado FROM habitaciones ORDER BY numero";
-                        var adapter = new MySqlDataAdapter(query, conn);
-                        var dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        dgvHabitaciones.DataSource = dt;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar habitaciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            panel.Controls.Add(dgvHabitaciones);
-            contentPanel.Controls.Add(panel);
-        }
-
-        private void MostrarRegistrarCliente()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            // [Resto del código para mostrar el formulario de cliente...]
-            // Mantener la misma implementación que tenías antes
-        }
-
-        private void MostrarRegistrarReservacion()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            // [Implementación del formulario de reserva...]
-            // Mantener la misma implementación pero mejorada
-        }
-
-        private void MostrarReservacionesExistentes()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            var dgvReservaciones = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            };
-
-            // Cargar reservaciones activas
-            CargarReservacionesGrid(dgvReservaciones, soloActivas: true);
-
-            panel.Controls.Add(dgvReservaciones);
-            contentPanel.Controls.Add(panel);
-        }
-
-        private void MostrarCheckIn()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            // Implementar interfaz para check-in
-            // Mostrar reservaciones pendientes de check-in
-            // Permitir seleccionar una y hacer check-in
-        }
-
-        private void MostrarCheckOut()
-        {
-            LimpiarContentPanel();
-
-            var panel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(20)
-            };
-
-            // Implementar interfaz para check-out
-            // Mostrar reservaciones activas (check-in realizado)
-            // Permitir seleccionar una y hacer check-out
-        }
-
-        private void CargarReservacionesGrid(DataGridView dgv, bool soloActivas = true)
+        private int ObtenerIdUsuarioActual()
         {
             try
             {
@@ -405,147 +239,21 @@ namespace Proyecto_PED.Views
                 {
                     if (conn != null)
                     {
-                        string query = @"SELECT r.id, c.nombre AS cliente, h.numero AS habitacion, 
-                                       h.tipo, r.fecha_entrada, r.fecha_salida, r.estado
-                                       FROM reservas r
-                                       JOIN clientes c ON r.cliente_id = c.id
-                                       JOIN habitaciones h ON r.habitacion_id = h.id
-                                       WHERE (@soloActivas = 0 OR r.estado IN ('Pendiente', 'Check-In'))
-                                       ORDER BY r.fecha_entrada DESC";
-
+                        string query = "SELECT id FROM usuarios WHERE nombre_usuario = @usuario";
                         var cmd = new MySqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@soloActivas", soloActivas ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@usuario", usuarioActual);
 
-                        var adapter = new MySqlDataAdapter(cmd);
-                        var dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        dgv.DataSource = dt;
-
-                        // Formatear columnas
-                        if (dgv.Columns.Contains("fecha_entrada") && dgv.Columns.Contains("fecha_salida"))
-                        {
-                            dgv.Columns["fecha_entrada"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                            dgv.Columns["fecha_salida"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                        }
+                        var result = cmd.ExecuteScalar();
+                        return result != null ? Convert.ToInt32(result) : -1;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar reservaciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al obtener ID de usuario: {ex.Message}", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            return -1;
         }
-
-        // [Mantener los demás métodos como CargarClientesCombo, CargarHabitacionesCombo, etc.]
-
-
-        private void CargarClientesCombo(ComboBox cmbClientes)
-        {
-            cmbClientes.Items.Clear();
-
-            try
-            {
-                using (var conn = conexionBD.ObtenerConexion())
-                {
-                    if (conn != null)
-                    {
-                        string query = "SELECT id, nombre FROM clientes ORDER BY nombre";
-                        var cmd = new MySqlCommand(query, conn);
-                        var reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            cmbClientes.Items.Add(new ClienteItem
-                            {
-                                Id = reader.GetInt32("id"),
-                                Nombre = reader.GetString("nombre")
-                            });
-                        }
-
-                        if (cmbClientes.Items.Count > 0)
-                            cmbClientes.SelectedIndex = 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar clientes: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void CargarHabitacionesCombo(ComboBox cmbHabitaciones)
-        {
-            cmbHabitaciones.Items.Clear();
-
-            try
-            {
-                using (var conn = conexionBD.ObtenerConexion())
-                {
-                    if (conn != null)
-                    {
-                        string query = "SELECT id, numero, tipo, precio FROM habitaciones WHERE disponible = TRUE ORDER BY numero";
-                        var cmd = new MySqlCommand(query, conn);
-                        var reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            cmbHabitaciones.Items.Add(new HabitacionItem
-                            {
-                                Id = reader.GetInt32("id"),
-                                Numero = reader.GetString("numero"),
-                                Tipo = reader.GetString("tipo"),
-                                Precio = reader.GetDecimal("precio")
-                            });
-                        }
-
-                        if (cmbHabitaciones.Items.Count > 0)
-                            cmbHabitaciones.SelectedIndex = 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar habitaciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void CargarReservacionesGrid(DataGridView dgv)
-        {
-            try
-            {
-                using (var conn = conexionBD.ObtenerConexion())
-                {
-                    if (conn != null)
-                    {
-                        string query = @"SELECT r.id, c.nombre AS cliente, h.numero AS habitacion, 
-                                       h.tipo, r.fecha_entrada, r.fecha_salida
-                                       FROM reservas r
-                                       JOIN clientes c ON r.cliente_id = c.id
-                                       JOIN habitaciones h ON r.habitacion_id = h.id
-                                       ORDER BY r.fecha_entrada DESC";
-
-                        var adapter = new MySqlDataAdapter(query, conn);
-                        var dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        dgv.DataSource = dt;
-
-                        // Formatear columnas
-                        if (dgv.Columns.Contains("fecha_entrada") && dgv.Columns.Contains("fecha_salida"))
-                        {
-                            dgv.Columns["fecha_entrada"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                            dgv.Columns["fecha_salida"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar reservaciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
     }
 }

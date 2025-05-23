@@ -259,12 +259,12 @@ namespace Proyecto_PED.Views
         private void MostrarGestionUsuarios()
         {
             LimpiarContentPanel();
-            var usuarioForm = new UsuarioForm(usuarioActual, rolActual);
-            usuarioForm.TopLevel = false;
-            usuarioForm.FormBorderStyle = FormBorderStyle.None;
-            usuarioForm.Dock = DockStyle.Fill;
-            contentPanel.Controls.Add(usuarioForm);
-            usuarioForm.Show();
+            var usuarioView = new UsuariosView(usuarioActual, rolActual);
+            usuarioView.TopLevel = false;
+            usuarioView.FormBorderStyle = FormBorderStyle.None;
+            usuarioView.Dock = DockStyle.Fill;
+            contentPanel.Controls.Add(usuarioView);
+            usuarioView.Show();
         }
 
         private void MostrarHabitaciones()

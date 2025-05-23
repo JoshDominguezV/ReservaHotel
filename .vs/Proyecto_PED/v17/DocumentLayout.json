@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\onedrive\\escritorio\\udb\\ped\\reservahotel\\views\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\onedrive\\escritorio\\udb\\ped\\reservahotel\\views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\onedrive\\escritorio\\udb\\ped\\reservahotel\\views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\inicioview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\onedrive\\escritorio\\udb\\ped\\reservahotel\\views\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|solutionrelative:views\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7CECA9EA-18DD-4BB9-853C-DE079EBA9A4C}|Proyecto_PED.csproj|c:\\users\\josue\\onedrive\\escritorio\\udb\\ped\\reservahotel\\auth\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,28 +74,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "InicioView.cs",
               "DocumentMoniker": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Views\\InicioView.cs",
               "RelativeDocumentMoniker": "Views\\InicioView.cs",
               "ToolTip": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Views\\InicioView.cs",
               "RelativeToolTip": "Views\\InicioView.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwCMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCAAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-23T04:19:15.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "InicioView.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Views\\InicioView.cs",
               "RelativeDocumentMoniker": "Views\\InicioView.cs",
               "ToolTip": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Views\\InicioView.cs [Dise\u00F1o]",
               "RelativeToolTip": "Views\\InicioView.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T04:19:04.602Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-23T04:19:04.602Z"
             },
             {
               "$type": "Document",
@@ -106,18 +105,17 @@
               "ToolTip": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Auth\\Login.cs [Design]",
               "RelativeToolTip": "Auth\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T04:10:41.191Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-23T04:10:41.191Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Views\\Main.cs",
               "RelativeDocumentMoniker": "Views\\Main.cs",
               "ToolTip": "C:\\Users\\josue\\OneDrive\\Escritorio\\UDB\\PED\\ReservaHotel\\Views\\Main.cs",
               "RelativeToolTip": "Views\\Main.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA8AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwBwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-23T04:10:25.687Z",
               "EditorCaption": ""
@@ -156,8 +154,7 @@
               "RelativeToolTip": "Auth\\Login.cs",
               "ViewState": "AgIAAKsAAAAAAAAAAIAwwLAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T03:40:45.783Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T03:40:45.783Z"
             },
             {
               "$type": "Document",

@@ -31,7 +31,7 @@ namespace Proyecto_PED.Views
 
         private void ConstruirInterfaz()
         {
-            // Configuración básica del formulario
+            // Configuración básica del formulario Menu
             this.Text = $"Sistema de Reservaciones - {usuarioActual} ({rolActual})";
             this.Size = new Size(1200, 750);
             this.StartPosition = FormStartPosition.CenterScreen;

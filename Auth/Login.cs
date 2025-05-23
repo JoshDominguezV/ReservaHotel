@@ -177,7 +177,7 @@ namespace Proyecto_PED.Auth
                 if (success)
                 {
                     this.Hide();
-                    var menu = new Reservacion(usuario, rol);
+                    var menu = new Main(usuario, rol);
                     menu.FormClosed += (s, args) => Application.Exit();
                     menu.Show();
                 }

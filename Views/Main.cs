@@ -8,7 +8,7 @@ using Proyecto_PED.Models;
 
 namespace Proyecto_PED.Views
 {
-    public partial class Reservacion : Form
+    public partial class Main : Form
     {
         private string usuarioActual;
         private string rolActual;
@@ -19,7 +19,7 @@ namespace Proyecto_PED.Views
         private const int menuWidth = 220;
         private const int subMenuWidth = 200;
 
-        public Reservacion(string usuario, string rol)
+        public Main(string usuario, string rol)
         {
             usuarioActual = usuario;
             rolActual = rol;
@@ -266,6 +266,8 @@ namespace Proyecto_PED.Views
             contentPanel.Controls.Add(usuarioView);
             usuarioView.Show();
         }
+
+
 
         private void MostrarHabitaciones()
         {

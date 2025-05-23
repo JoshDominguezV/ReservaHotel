@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto_PED")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25809458162c0d0d37ef76c765b472b9a30bddd9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff8c7f03292774efcd5c775999cef428b7c21a99")]
 [assembly: System.Reflection.AssemblyProductAttribute("Proyecto_PED")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Proyecto_PED")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

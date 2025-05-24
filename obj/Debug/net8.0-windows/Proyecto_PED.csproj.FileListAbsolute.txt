@@ -172,3 +172,5 @@ C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\refint\Proy
 C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.pdb
 C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.genruntimeconfig.cache
 C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\ref\Proyecto_PED.dll
+C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.Views.Clientes.ClientForm.resources
+C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.Views.Clientes.ClientsView.resources

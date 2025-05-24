@@ -14,7 +14,7 @@ namespace Proyecto_PED.Models
         public override string ToString()
         {
             return Nombre;
-            //hellowbranck xxxx
+            
         }
     }
 }

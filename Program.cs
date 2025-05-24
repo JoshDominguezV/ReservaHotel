@@ -1,5 +1,9 @@
 using Proyecto_PED.Auth;
 using Proyecto_PED.Database;
+using Proyecto_PED.Views;
+using Proyecto_PED.Views.Clientes;
+
+
 //using Proyecto_PED.Views;
 using System;
 using System.Windows.Forms;
@@ -24,8 +28,8 @@ namespace Proyecto_PED
   
                 // Inicializar la aplicación
                 ApplicationConfiguration.Initialize();
-                Application.Run(new SplashScreen());
-                //Application.Run(new Reservacion("admin","Administrador")); 
+                //Application.Run(new SplashScreen());
+                Application.Run(new Main("admin","Administrador")); 
                 //Application.Run(new MainDashboard("admin", "admin"));
             }
             catch (Exception ex)

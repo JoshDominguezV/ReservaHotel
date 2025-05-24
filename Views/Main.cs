@@ -183,7 +183,7 @@ namespace Proyecto_PED.Views
             LimpiarContentPanel();
             OcultarSubMenu();
 
-            var clientesView = new ClientsView(conexionBD);
+            var clientesView = new ClientsView(usuarioActual, rolActual);
             CargarVistaEnPanel(clientesView);
         }
 

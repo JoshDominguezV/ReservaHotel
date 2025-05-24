@@ -11,20 +11,32 @@ namespace Proyecto_PED.Views.Clientes
     public partial class ClientsView : Form
     {
         private ConexionBD conexionBD;
+        private string usuarioActual;
+        private string rolActual;
+        private int? clienteSeleccionadoId = null;
         private Guna2DataGridView dgvClientes;
         private Guna2TextBox txtBusqueda;
         private Guna2Button btnNuevoCliente;
-        private Guna2Button btnEditarCliente;
         private Guna2Button btnEliminarCliente;
         private Guna2Button btnActualizar;
 
-        public ClientsView(ConexionBD conexion)
+        public ClientsView(string usuario, string rol)
         {
-            conexionBD = conexion;
+            usuarioActual = usuario;
+            rolActual = rol;
+            conexionBD = new ConexionBD();
             InitializeUI();
             CargarClientes();
+            ConfigPermisos();
         }
 
+        private void ConfigPermisos()
+        {
+            bool tienePermiso = rolActual == "Administrador" || rolActual == "Recepcionista";
+
+            btnNuevoCliente.Enabled = tienePermiso;
+            btnEliminarCliente.Visible = rolActual == "Administrador"; 
+        }
         private void InitializeUI()
         {
             this.Text = "Gestión de Clientes";
@@ -116,6 +128,19 @@ namespace Proyecto_PED.Views.Clientes
             };
             btnNuevoCliente.Click += (s, e) => MostrarFormularioCliente();
 
+            // Botón Eliminar Cliente
+            btnEliminarCliente = new Guna2Button()
+            {
+                Text = "Eliminar",
+                Size = new Size(120, 36),
+                BorderRadius = 10,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                FillColor = Color.FromArgb(220, 80, 80),
+                ForeColor = Color.White,
+                Animated = true,
+            };
+            btnEliminarCliente.Click += (s, e) => EliminarCliente(); 
+
             // DataGridView con estilo Guna2
             dgvClientes = new Guna2DataGridView()
             {
@@ -151,7 +176,7 @@ namespace Proyecto_PED.Views.Clientes
                 WrapContents = false,
                 AutoSize = true
             };
-            controlsFlow.Controls.AddRange(new Control[] { txtBusqueda, btnActualizar, btnNuevoCliente });
+            controlsFlow.Controls.AddRange(new Control[] { txtBusqueda, btnActualizar, btnNuevoCliente, btnEliminarCliente });
 
             controlsPanel.Controls.Add(controlsFlow);
             headerPanel.Controls.Add(lblTitulo);
@@ -227,6 +252,44 @@ namespace Proyecto_PED.Views.Clientes
             }
         }
 
+        private void EliminarCliente()
+        {
+            if (dgvClientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un cliente para eliminar", "Advertencia",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var confirmacion = MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar",
+                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                try
+                {
+                    int idCliente = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["id"].Value);
+
+                    using (var conn = conexionBD.ObtenerConexion())
+                    {
+                        var cmd = new MySqlCommand("sp_DeleteClient", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_id", idCliente);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    CargarClientes();
+                    MessageBox.Show("Cliente eliminado correctamente", "Éxito",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar cliente: {ex.Message}", "Error",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void EditarClienteSeleccionado()
         {
             if (dgvClientes.SelectedRows.Count > 0)
@@ -238,7 +301,7 @@ namespace Proyecto_PED.Views.Clientes
 
         private void MostrarFormularioCliente(int idCliente = 0)
         {
-            var formCliente = new ClientForm(conexionBD, idCliente);
+            var formCliente = new ClientForm(idCliente);
             if (formCliente.ShowDialog() == DialogResult.OK)
             {
                 CargarClientes();

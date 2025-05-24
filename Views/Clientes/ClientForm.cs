@@ -23,11 +23,11 @@ namespace Proyecto_PED.Views.Clientes
         private Guna2Button btnGuardar;
         private Guna2Button btnCancelar;
 
-        public ClientForm(ConexionBD conexion, int idCliente = 0)
+        public ClientForm(int idCliente = 0)
         {
-            conexionBD = conexion;
             clienteId = idCliente;
             esNuevo = (idCliente == 0);
+            conexionBD = new ConexionBD();
 
             InitializeUI();
             if (!esNuevo) CargarDatosCliente();

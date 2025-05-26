@@ -1,9 +1,10 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
 using Proyecto_PED.Views;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using static Guna.UI2.WinForms.Suite.Descriptions;
 
 namespace Proyecto_PED.Views
 {
@@ -31,6 +32,11 @@ namespace Proyecto_PED.Views
 
         private void ConstruirInterfaz()
         {
+            this.WindowState = FormWindowState.Maximized;
+            this.MinimumSize = new Size(800, 600); // Evita que sea demasiado pequeño
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
+
             // Configuración básica del formulario Menu
             this.Text = $"Sistema de Reservaciones - {usuarioActual} ({rolActual})";
             this.Size = new Size(1200, 750);
@@ -73,6 +79,28 @@ namespace Proyecto_PED.Views
 
         private void ConstruirMenuPrincipal()
         {
+
+            // Botón Cerrar con icono
+            var btnCerrar = new Button
+            {
+                Size = new Size(32, 32),
+                Location = new Point(this.ClientSize.Width - 40, 8),
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                BackColor = Color.Transparent,
+                FlatStyle = FlatStyle.Flat,
+                Image = Properties.Resources.iconX,
+                ImageAlign = ContentAlignment.MiddleCenter,
+                Cursor = Cursors.Hand
+            };
+            btnCerrar.FlatAppearance.BorderSize = 0;
+            btnCerrar.FlatAppearance.MouseOverBackColor = Color.FromArgb(230, 50, 50);
+            btnCerrar.Click += (s, e) => this.Close();
+
+            this.Controls.Add(btnCerrar);
+            btnCerrar.BringToFront();
+
+
+
             // Encabezado
             var lblLogo = new Label
             {

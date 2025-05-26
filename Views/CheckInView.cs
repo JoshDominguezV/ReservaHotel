@@ -1,10 +1,9 @@
-﻿using Proyecto_PED.Database;
-using System;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Guna.UI2.WinForms;
+using Proyecto_PED.Database;
 
 namespace Proyecto_PED.Views
 {
@@ -33,7 +32,7 @@ namespace Proyecto_PED.Views
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(240, 240, 245);
 
-            // Panel principal
+            // Panel principal con márgenes
             var mainPanel = new Guna2Panel()
             {
                 Dock = DockStyle.Fill,
@@ -68,19 +67,21 @@ namespace Proyecto_PED.Views
                 Height = headerPanel.Height
             };
 
-            // Panel de contenido dividido en dos partes
-            var contentPanel = new SplitContainer()
+            // Panel de contenido principal
+            var contentPanel = new Panel()
             {
                 Dock = DockStyle.Fill,
-                Orientation = Orientation.Vertical,
-                SplitterDistance = 400,
-                BorderStyle = BorderStyle.None
+                Padding = new Padding(20)
             };
 
-            // Panel izquierdo - Lista de reservas
-            var reservasPanel = new Panel()
+            // Panel de reservas (parte superior)
+            var reservasPanel = new Guna2Panel()
             {
-                Dock = DockStyle.Fill,
+                Dock = DockStyle.Top,
+                Height = 250,
+                BorderRadius = 10,
+                BorderColor = Color.FromArgb(200, 200, 200),
+                Margin = new Padding(0, 0, 0, 20),
                 Padding = new Padding(15)
             };
 
@@ -88,6 +89,7 @@ namespace Proyecto_PED.Views
             {
                 Text = "Reservas Pendientes de Check-In",
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Dock = DockStyle.Top,
                 AutoSize = true,
                 Margin = new Padding(0, 0, 0, 10)
             };
@@ -104,7 +106,7 @@ namespace Proyecto_PED.Views
                 BorderStyle = BorderStyle.None
             };
 
-            // Configuración de estilos del DataGridView
+            // Configurar estilos del DataGridView
             dgvReservas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 80);
             dgvReservas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvReservas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -118,12 +120,15 @@ namespace Proyecto_PED.Views
 
             reservasPanel.Controls.Add(dgvReservas);
             reservasPanel.Controls.Add(lblReservas);
-            contentPanel.Panel1.Controls.Add(reservasPanel);
 
-            // Panel derecho - Detalles y check-in
-            var detallesPanel = new Panel()
+            // Panel de detalles (parte media)
+            var detallesPanel = new Guna2Panel()
             {
-                Dock = DockStyle.Fill,
+                Dock = DockStyle.Top,
+                Height = 150,
+                BorderRadius = 10,
+                BorderColor = Color.FromArgb(200, 200, 200),
+                Margin = new Padding(0, 0, 0, 20),
                 Padding = new Padding(15)
             };
 
@@ -131,87 +136,121 @@ namespace Proyecto_PED.Views
             {
                 Text = "Detalles de la Reserva",
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Dock = DockStyle.Top,
                 AutoSize = true,
                 Margin = new Padding(0, 0, 0, 10)
-            };
-
-            var pnlDetalles = new Guna2Panel()
-            {
-                Dock = DockStyle.Top,
-                Height = 250,
-                BorderRadius = 10,
-                BorderColor = Color.FromArgb(200, 200, 200),
-                BorderThickness = 1,
-                Padding = new Padding(15),
-                Margin = new Padding(0, 0, 0, 15)
             };
 
             // Controles para detalles de la reserva
-            var lblCliente = new Label() { Text = "Cliente:", AutoSize = true, Location = new Point(20, 20) };
-            var txtCliente = new Guna2TextBox() { ReadOnly = true, Location = new Point(120, 15), Width = 250 };
-
-            var lblHabitacion = new Label() { Text = "Habitación:", AutoSize = true, Location = new Point(20, 60) };
-            var txtHabitacion = new Guna2TextBox() { ReadOnly = true, Location = new Point(120, 55), Width = 100 };
-
-            var lblFechas = new Label() { Text = "Fechas:", AutoSize = true, Location = new Point(20, 100) };
-            var txtFechas = new Guna2TextBox() { ReadOnly = true, Location = new Point(120, 95), Width = 250 };
-
-            var lblTotal = new Label() { Text = "Total:", AutoSize = true, Location = new Point(20, 140) };
-            var txtTotal = new Guna2TextBox() { ReadOnly = true, Location = new Point(120, 135), Width = 100 };
-
-            pnlDetalles.Controls.AddRange(new Control[] { lblCliente, txtCliente, lblHabitacion, txtHabitacion, lblFechas, txtFechas, lblTotal, txtTotal });
-
-            // Panel de servicios
-            var lblServicios = new Label()
+            var lblCliente = new Label() { Text = "Cliente:", AutoSize = true, Location = new Point(20, 40) };
+            var txtCliente = new Guna2TextBox()
             {
-                Text = "Servicios Adicionales",
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                AutoSize = true,
-                Margin = new Padding(0, 0, 0, 10)
+                ReadOnly = true,
+                Location = new Point(120, 35),
+                Width = 300,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
             };
 
-            var pnlServicios = new Guna2Panel()
+            var lblHabitacion = new Label() { Text = "Habitación:", AutoSize = true, Location = new Point(450, 40) };
+            var txtHabitacion = new Guna2TextBox()
+            {
+                ReadOnly = true,
+                Location = new Point(550, 35),
+                Width = 100,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
+            };
+
+            var lblFechas = new Label() { Text = "Fechas:", AutoSize = true, Location = new Point(20, 80) };
+            var txtFechas = new Guna2TextBox()
+            {
+                ReadOnly = true,
+                Location = new Point(120, 75),
+                Width = 200,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
+            };
+
+            var lblTotal = new Label() { Text = "Total:", AutoSize = true, Location = new Point(450, 80) };
+            var txtTotal = new Guna2TextBox()
+            {
+                ReadOnly = true,
+                Location = new Point(550, 75),
+                Width = 100,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
+            };
+
+            detallesPanel.Controls.AddRange(new Control[] {
+                lblCliente, txtCliente,
+                lblHabitacion, txtHabitacion,
+                lblFechas, txtFechas,
+                lblTotal, txtTotal,
+                lblDetalles
+            });
+
+            // Panel de servicios (parte media)
+            var serviciosPanel = new Guna2Panel()
             {
                 Dock = DockStyle.Top,
                 Height = 150,
                 BorderRadius = 10,
                 BorderColor = Color.FromArgb(200, 200, 200),
-                BorderThickness = 1,
-                Padding = new Padding(15),
-                Margin = new Padding(0, 0, 0, 15)
+                Margin = new Padding(0, 0, 0, 20),
+                Padding = new Padding(15)
+            };
+
+            var lblServicios = new Label()
+            {
+                Text = "Servicios Adicionales",
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Dock = DockStyle.Top,
+                AutoSize = true,
+                Margin = new Padding(0, 0, 0, 10)
             };
 
             var cmbServicios = new Guna2ComboBox()
             {
-                Location = new Point(20, 20),
-                Width = 200,
-                DropDownStyle = ComboBoxStyle.DropDownList
+                Name = "cmbServicios",
+                Location = new Point(20, 40),
+                Width = 250,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
             };
 
             var numCantidad = new Guna2NumericUpDown()
             {
-                Location = new Point(240, 20),
+                Name = "numCantidad",
+                Location = new Point(290, 40),
                 Width = 80,
                 Minimum = 1,
                 Maximum = 10,
-                Value = 1
+                Value = 1,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
             };
 
             var btnAgregarServicio = new Guna2Button()
             {
                 Text = "Agregar Servicio",
-                Location = new Point(340, 20),
+                Name = "btnAgregarServicio",
+                Location = new Point(390, 40),
                 Size = new Size(150, 30),
                 FillColor = Color.FromArgb(70, 130, 180),
-                ForeColor = Color.White
+                ForeColor = Color.White,
+                BorderRadius = 5,
+                Animated = true
             };
             btnAgregarServicio.Click += BtnAgregarServicio_Click;
 
             var dgvServicios = new Guna2DataGridView()
             {
-                Location = new Point(20, 60),
-                Width = pnlServicios.Width - 40,
-                Height = 70,
+                Name = "dgvServicios",
+                Location = new Point(20, 80),
+                Width = serviciosPanel.Width - 40,
+                Height = 60,
                 AllowUserToAddRows = false,
                 AllowUserToDeleteRows = false,
                 ReadOnly = true,
@@ -219,67 +258,86 @@ namespace Proyecto_PED.Views
                 BorderStyle = BorderStyle.None
             };
 
-            pnlServicios.Controls.AddRange(new Control[] { cmbServicios, numCantidad, btnAgregarServicio, dgvServicios });
+            serviciosPanel.Controls.AddRange(new Control[] {
+                lblServicios, cmbServicios,
+                numCantidad, btnAgregarServicio,
+                dgvServicios
+            });
 
-            // Panel de check-in
-            var pnlCheckIn = new Guna2Panel()
+            // Panel de check-in (parte inferior)
+            var checkInPanel = new Guna2Panel()
             {
                 Dock = DockStyle.Top,
                 Height = 120,
                 BorderRadius = 10,
                 BorderColor = Color.FromArgb(200, 200, 200),
-                BorderThickness = 1,
                 Padding = new Padding(15)
             };
 
-            var lblMetodoPago = new Label() { Text = "Método de Pago:", AutoSize = true, Location = new Point(20, 20) };
-            var cmbMetodoPago = new Guna2ComboBox()
+            var lblMetodoPago = new Label()
             {
-                Location = new Point(150, 15),
-                Width = 150,
-                DropDownStyle = ComboBoxStyle.DropDownList
+                Text = "Método de Pago:",
+                AutoSize = true,
+                Location = new Point(20, 20)
             };
 
-            var lblDeposito = new Label() { Text = "Depósito Seguridad:", AutoSize = true, Location = new Point(20, 60) };
+            var cmbMetodoPago = new Guna2ComboBox()
+            {
+                Name = "cmbMetodoPago",
+                Location = new Point(150, 15),
+                Width = 150,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
+            };
+
+            var lblDeposito = new Label()
+            {
+                Text = "Depósito Seguridad:",
+                AutoSize = true,
+                Location = new Point(20, 60)
+            };
+
             var txtDeposito = new Guna2TextBox()
             {
+                Name = "txtDeposito",
                 Location = new Point(150, 55),
                 Width = 150,
-                Text = "0.00"
+                Text = "0.00",
+                BorderRadius = 5,
+                BorderColor = Color.FromArgb(200, 200, 200)
             };
 
             var btnCheckIn = new Guna2Button()
             {
                 Text = "Realizar Check-In",
+                Name = "btnCheckIn",
                 Location = new Point(320, 55),
                 Size = new Size(150, 30),
                 FillColor = Color.FromArgb(60, 179, 113),
-                ForeColor = Color.White
+                ForeColor = Color.White,
+                BorderRadius = 5,
+                Animated = true
             };
             btnCheckIn.Click += BtnCheckIn_Click;
 
-            pnlCheckIn.Controls.AddRange(new Control[] { lblMetodoPago, cmbMetodoPago, lblDeposito, txtDeposito, btnCheckIn });
+            checkInPanel.Controls.AddRange(new Control[] {
+                lblMetodoPago, cmbMetodoPago,
+                lblDeposito, txtDeposito,
+                btnCheckIn
+            });
 
-            detallesPanel.Controls.Add(pnlCheckIn);
-            detallesPanel.Controls.Add(lblServicios);
-            detallesPanel.Controls.Add(pnlServicios);
-            detallesPanel.Controls.Add(lblDetalles);
-            detallesPanel.Controls.Add(pnlDetalles);
-            contentPanel.Panel2.Controls.Add(detallesPanel);
+            // Ensamblar los paneles
+            contentPanel.Controls.Add(checkInPanel);
+            contentPanel.Controls.Add(serviciosPanel);
+            contentPanel.Controls.Add(detallesPanel);
+            contentPanel.Controls.Add(reservasPanel);
 
+            headerPanel.Controls.Add(lblTitulo);
             mainPanel.Controls.Add(contentPanel);
             mainPanel.Controls.Add(headerPanel);
-            this.Controls.Add(mainPanel);
 
-            // Asignar nombres a los controles para poder acceder a ellos
-            txtCliente.Name = "txtCliente";
-            txtHabitacion.Name = "txtHabitacion";
-            txtFechas.Name = "txtFechas";
-            txtTotal.Name = "txtTotal";
-            cmbServicios.Name = "cmbServicios";
-            dgvServicios.Name = "dgvServicios";
-            cmbMetodoPago.Name = "cmbMetodoPago";
-            txtDeposito.Name = "txtDeposito";
+            this.Controls.Add(mainPanel);
         }
 
         private void CargarReservasPendientes()
@@ -290,16 +348,18 @@ namespace Proyecto_PED.Views
             {
                 using (var conn = conexionBD.ObtenerConexion())
                 {
-                    if (conn != null)
+                    var cmd = new MySqlCommand("sp_GetPendingCheckIns", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var adapter = new MySqlDataAdapter(cmd);
+                    var dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvReservas.DataSource = dt;
+
+                    if (dgvReservas.Columns.Count > 0)
                     {
-                        var cmd = new MySqlCommand("sp_GetPendingCheckIns", conn);
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        var adapter = new MySqlDataAdapter(cmd);
-                        var dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        dgvReservas.DataSource = dt;
+                        dgvReservas.Columns["reserva_id"].Visible = false;
                     }
                 }
             }
@@ -313,10 +373,9 @@ namespace Proyecto_PED.Views
         {
             var cmbMetodoPago = (Guna2ComboBox)this.Controls.Find("cmbMetodoPago", true)[0];
 
-            cmbMetodoPago.Items.Add("Efectivo");
-            cmbMetodoPago.Items.Add("Tarjeta");
-            cmbMetodoPago.Items.Add("Transferencia");
-            cmbMetodoPago.Items.Add("Otro");
+            cmbMetodoPago.Items.AddRange(new object[] {
+                "Efectivo", "Tarjeta", "Transferencia", "Otro"
+            });
 
             if (cmbMetodoPago.Items.Count > 0)
                 cmbMetodoPago.SelectedIndex = 0;
@@ -336,58 +395,47 @@ namespace Proyecto_PED.Views
             {
                 reservaSeleccionadaId = Convert.ToInt32(dgvReservas.SelectedRows[0].Cells["reserva_id"].Value);
 
-                // Cargar detalles de la reserva
                 try
                 {
                     using (var conn = conexionBD.ObtenerConexion())
                     {
-                        if (conn != null)
+                        // Cargar detalles de la reserva
+                        var cmdDetalles = new MySqlCommand("sp_GetReservaDetails", conn);
+                        cmdDetalles.CommandType = CommandType.StoredProcedure;
+                        cmdDetalles.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
+
+                        var reader = cmdDetalles.ExecuteReader();
+                        if (reader.Read())
                         {
-                            var cmd = new MySqlCommand("sp_GetReservaDetails", conn);
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
-
-                            var reader = cmd.ExecuteReader();
-                            if (reader.Read())
-                            {
-                                txtCliente.Text = reader["cliente"].ToString();
-                                txtHabitacion.Text = reader["habitacion"].ToString();
-                                txtFechas.Text = $"{reader["fecha_entrada"]:d} - {reader["fecha_salida"]:d}";
-                                txtTotal.Text = $"{reader["precio_total"]:C}";
-                            }
-                            reader.Close();
-
-                            // Cargar servicios de la reserva
-                            var cmdServicios = new MySqlCommand("sp_GetReservaServices", conn);
-                            cmdServicios.CommandType = CommandType.StoredProcedure;
-                            cmdServicios.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
-
-                            var adapter = new MySqlDataAdapter(cmdServicios);
-                            var dt = new DataTable();
-                            adapter.Fill(dt);
-
-                            dgvServicios.DataSource = dt;
-
-                            // Cargar servicios disponibles
-                            var cmdServiciosDisponibles = new MySqlCommand("sp_GetAvailableServices", conn);
-                            cmdServiciosDisponibles.CommandType = CommandType.StoredProcedure;
-
-                            cmbServicios.Items.Clear();
-                            var readerServicios = cmdServiciosDisponibles.ExecuteReader();
-                            while (readerServicios.Read())
-                            {
-                                cmbServicios.Items.Add(new
-                                {
-                                    Id = readerServicios.GetInt32("id"),
-                                    Nombre = readerServicios.GetString("nombre"),
-                                    Precio = readerServicios.GetDecimal("precio")
-                                });
-                            }
-                            readerServicios.Close();
-
-                            if (cmbServicios.Items.Count > 0)
-                                cmbServicios.DisplayMember = "Nombre";
+                            txtCliente.Text = reader["cliente"].ToString();
+                            txtHabitacion.Text = reader["habitacion"].ToString();
+                            txtFechas.Text = $"{reader["fecha_entrada"]:d} - {reader["fecha_salida"]:d}";
+                            txtTotal.Text = $"{reader["precio_total"]:C2}";
                         }
+                        reader.Close();
+
+                        // Cargar servicios de la reserva
+                        var cmdServicios = new MySqlCommand("sp_GetReservaServices", conn);
+                        cmdServicios.CommandType = CommandType.StoredProcedure;
+                        cmdServicios.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
+
+                        var adapter = new MySqlDataAdapter(cmdServicios);
+                        var dtServicios = new DataTable();
+                        adapter.Fill(dtServicios);
+
+                        dgvServicios.DataSource = dtServicios;
+
+                        // Cargar servicios disponibles
+                        var cmdServiciosDisponibles = new MySqlCommand("sp_GetAvailableServices", conn);
+                        cmdServiciosDisponibles.CommandType = CommandType.StoredProcedure;
+
+                        var adapterServicios = new MySqlDataAdapter(cmdServiciosDisponibles);
+                        var dtServiciosDisponibles = new DataTable();
+                        adapterServicios.Fill(dtServiciosDisponibles);
+
+                        cmbServicios.DataSource = dtServiciosDisponibles;
+                        cmbServicios.DisplayMember = "nombre";
+                        cmbServicios.ValueMember = "id";
                     }
                 }
                 catch (Exception ex)
@@ -402,7 +450,11 @@ namespace Proyecto_PED.Views
                 txtHabitacion.Text = string.Empty;
                 txtFechas.Text = string.Empty;
                 txtTotal.Text = string.Empty;
-                dgvServicios.DataSource = null;
+
+                var emptyTable = new DataTable();
+                dgvServicios.DataSource = emptyTable;
+
+                cmbServicios.DataSource = null;
                 cmbServicios.Items.Clear();
             }
         }
@@ -411,7 +463,6 @@ namespace Proyecto_PED.Views
         {
             var cmbServicios = (Guna2ComboBox)this.Controls.Find("cmbServicios", true)[0];
             var numCantidad = (Guna2NumericUpDown)this.Controls.Find("numCantidad", true)[0];
-            var dgvServicios = (Guna2DataGridView)this.Controls.Find("dgvServicios", true)[0];
 
             if (reservaSeleccionadaId == null)
             {
@@ -427,26 +478,24 @@ namespace Proyecto_PED.Views
 
             try
             {
-                dynamic servicio = cmbServicios.SelectedItem;
-                int cantidad = (int)numCantidad.Value;
+                var servicioId = ((DataRowView)cmbServicios.SelectedItem)["id"];
+                var cantidad = (int)numCantidad.Value;
 
                 using (var conn = conexionBD.ObtenerConexion())
                 {
-                    if (conn != null)
-                    {
-                        var cmd = new MySqlCommand("sp_AddServiceToReserva", conn);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
-                        cmd.Parameters.AddWithValue("p_servicio_id", servicio.Id);
-                        cmd.Parameters.AddWithValue("p_cantidad", cantidad);
-                        cmd.Parameters.AddWithValue("p_fecha", DateTime.Today);
+                    var cmd = new MySqlCommand("sp_AddServiceToReserva", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
+                    cmd.Parameters.AddWithValue("p_servicio_id", servicioId);
+                    cmd.Parameters.AddWithValue("p_cantidad", cantidad);
+                    cmd.Parameters.AddWithValue("p_fecha", DateTime.Today);
 
-                        cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
 
-                        // Actualizar la lista de servicios
-                        DgvReservas_SelectionChanged(null, null);
-                        MessageBox.Show("Servicio agregado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    // Actualizar la vista
+                    DgvReservas_SelectionChanged(null, null);
+                    MessageBox.Show("Servicio agregado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -459,7 +508,6 @@ namespace Proyecto_PED.Views
         {
             var cmbMetodoPago = (Guna2ComboBox)this.Controls.Find("cmbMetodoPago", true)[0];
             var txtDeposito = (Guna2TextBox)this.Controls.Find("txtDeposito", true)[0];
-            var dgvReservas = (Guna2DataGridView)this.Controls.Find("dgvReservas", true)[0];
 
             if (reservaSeleccionadaId == null)
             {
@@ -483,26 +531,24 @@ namespace Proyecto_PED.Views
             {
                 using (var conn = conexionBD.ObtenerConexion())
                 {
-                    if (conn != null)
-                    {
-                        var cmd = new MySqlCommand("sp_CheckInReserva", conn);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
-                        cmd.Parameters.AddWithValue("p_usuario_id", usuarioId);
-                        cmd.Parameters.AddWithValue("p_metodo_pago", cmbMetodoPago.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("p_deposito_seguridad", deposito);
-                        cmd.Parameters.AddWithValue("p_observaciones", "");
+                    var cmd = new MySqlCommand("sp_CheckInReserva", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("p_reserva_id", reservaSeleccionadaId);
+                    cmd.Parameters.AddWithValue("p_usuario_id", usuarioId);
+                    cmd.Parameters.AddWithValue("p_metodo_pago", cmbMetodoPago.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("p_deposito_seguridad", deposito);
+                    cmd.Parameters.AddWithValue("p_observaciones", "");
 
-                        cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Check-In realizado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Check-In realizado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Actualizar la lista de reservas
-                        CargarReservasPendientes();
+                    // Actualizar la lista de reservas
+                    CargarReservasPendientes();
 
-                        // Limpiar detalles
-                        DgvReservas_SelectionChanged(null, null);
-                    }
+                    // Limpiar detalles
+                    DgvReservas_SelectionChanged(null, null);
                 }
             }
             catch (Exception ex)

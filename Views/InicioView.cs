@@ -26,7 +26,7 @@ namespace Proyecto_PED.Views
 
             var lblBienvenido = new Label
             {
-                Text = $"Bienvenido, {usuario} al sistema de reserva",
+                Text = $"Bienvenido, {usuario} al sistema de reserva de hotel",
                 Font = new Font("Segoe UI", 18, FontStyle.Bold),
                 AutoSize = true,
                 Location = new Point(50, 50)

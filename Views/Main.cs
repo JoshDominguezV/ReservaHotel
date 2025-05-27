@@ -1,10 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
 using Proyecto_PED.Views;
+
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using static Guna.UI2.WinForms.Suite.Descriptions;
+
+using Proyecto_PED.Views.Clientes;
+using Proyecto_PED.Views.Habitaciones;
+
 
 namespace Proyecto_PED.Views
 {
@@ -123,6 +128,8 @@ namespace Proyecto_PED.Views
             // Eventos
             btnInicio.Click += (s, e) => MostrarVistaInicio();
             btnReservaciones.Click += (s, e) => MostrarSubMenuReservaciones();
+            btnClientes.Click += (s, e) => MostrarVistaClientes();
+            btnHabitaciones.Click += (s, e) => MostrarVistaHabitaciones();
             btnGestionUsuarios.Click += (s, e) => MostrarVistaUsuarios();
             btnCerrarSesion.Click += (s, e) => this.Close();
 
@@ -202,6 +209,23 @@ namespace Proyecto_PED.Views
         {
             subMenuPanel.Width = subMenuPanel.Width == subMenuWidth ? 0 : subMenuWidth;
             subMenuPanel.Visible = subMenuPanel.Width > 0;
+        }
+
+        private void MostrarVistaClientes()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var clientesView = new ClientsView(usuarioActual, rolActual);
+            CargarVistaEnPanel(clientesView);
+        }
+        private void MostrarVistaHabitaciones()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var habitacionesView = new RoomView(usuarioActual, rolActual);
+            CargarVistaEnPanel(habitacionesView);
         }
 
         private void MostrarVistaInicio()

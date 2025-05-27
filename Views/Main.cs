@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
 using Proyecto_PED.Views;
 using Proyecto_PED.Views.Clientes;
+using Proyecto_PED.Views.Habitaciones;
 
 namespace Proyecto_PED.Views
 {
@@ -97,6 +98,7 @@ namespace Proyecto_PED.Views
             btnInicio.Click += (s, e) => MostrarVistaInicio();
             btnReservaciones.Click += (s, e) => MostrarSubMenuReservaciones();
             btnClientes.Click += (s, e) => MostrarVistaClientes();
+            btnHabitaciones.Click += (s, e) => MostrarVistaHabitaciones();
             btnGestionUsuarios.Click += (s, e) => MostrarVistaUsuarios();
             btnCerrarSesion.Click += (s, e) => this.Close();
 
@@ -185,6 +187,14 @@ namespace Proyecto_PED.Views
 
             var clientesView = new ClientsView(usuarioActual, rolActual);
             CargarVistaEnPanel(clientesView);
+        }
+        private void MostrarVistaHabitaciones()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var habitacionesView = new RoomView(usuarioActual, rolActual);
+            CargarVistaEnPanel(habitacionesView);
         }
 
         private void MostrarVistaInicio()

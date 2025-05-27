@@ -174,3 +174,5 @@ C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PE
 C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\ref\Proyecto_PED.dll
 C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.Views.Clientes.ClientForm.resources
 C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.Views.Clientes.ClientsView.resources
+C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.Views.Habitaciones.RoomForm.resources
+C:\Users\Administrador\Desktop\ReservaHotel\obj\Debug\net8.0-windows\Proyecto_PED.Views.Habitaciones.RoomView.resources

@@ -16,6 +16,12 @@
     <Compile Update="Views\Clientes\ClientsView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Habitaciones\RoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Habitaciones\RoomView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\InicioView.cs">
       <SubType>Form</SubType>
     </Compile>

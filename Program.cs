@@ -2,6 +2,8 @@ using Proyecto_PED.Auth;
 using Proyecto_PED.Database;
 using Proyecto_PED.Views;
 using Proyecto_PED.Views.Clientes;
+using Proyecto_PED.Views.Habitaciones;
+
 
 
 //using Proyecto_PED.Views;
@@ -29,6 +31,8 @@ namespace Proyecto_PED
                 // Inicializar la aplicación
                 ApplicationConfiguration.Initialize();
                 //Application.Run(new SplashScreen());
+
+                //Kevs
                 Application.Run(new Main("admin","Administrador")); 
                 //Application.Run(new MainDashboard("admin", "admin"));
             }

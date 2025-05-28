@@ -34,7 +34,7 @@ namespace Proyecto_PED.Views.Habitaciones
         private void InitializeUI()
         {
             this.Text = esNuevo ? "Nueva Habitación" : "Editar Habitación";
-            this.Size = new Size(500, 500);
+            this.Size = new Size(500, 450);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.None;
             this.BackColor = Color.FromArgb(240, 240, 245);

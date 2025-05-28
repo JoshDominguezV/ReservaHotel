@@ -206,11 +206,16 @@ namespace Proyecto_PED.Views.Habitaciones
             this.Controls.Add(mainPanel);
         }
 
-        private void CargarHabitaciones()
+        // Modificar el método CargarHabitaciones para que acepte un parámetro opcional
+        private void CargarHabitaciones(int? idHabitacion = null)
         {
             try
             {
-                roomsContainer.Controls.Clear();
+                if (idHabitacion == null)
+                {
+                    // Carga completa si no se especifica ID
+                    roomsContainer.Controls.Clear();
+                }
 
                 using (var conn = conexionBD.ObtenerConexion())
                 {
@@ -233,8 +238,17 @@ namespace Proyecto_PED.Views.Habitaciones
                                 Notas = reader.IsDBNull("notas") ? null : reader.GetString("notas")
                             };
 
-                            var roomCard = CrearCardHabitacion(habitacion);
-                            roomsContainer.Controls.Add(roomCard);
+                            // Si se especificó un ID, solo actualizamos esa card
+                            if (idHabitacion != null && habitacion.Id == idHabitacion)
+                            {
+                                ActualizarCard(habitacion);
+                                break;
+                            }
+                            else if (idHabitacion == null)
+                            {
+                                var roomCard = CrearCardHabitacion(habitacion);
+                                roomsContainer.Controls.Add(roomCard);
+                            }
                         }
                     }
                 }
@@ -446,6 +460,7 @@ namespace Proyecto_PED.Views.Habitaciones
             }
         }
 
+        // Modificar el método EliminarHabitacion
         private void EliminarHabitacion()
         {
             if (!habitacionSeleccionadaId.HasValue)
@@ -470,11 +485,19 @@ namespace Proyecto_PED.Views.Habitaciones
                         cmd.ExecuteNonQuery();
                     }
 
-                    CargarHabitaciones();
+                    // Eliminar solo la card correspondiente
+                    foreach (Control control in roomsContainer.Controls)
+                    {
+                        if (control is Guna2Panel panel && panel.Tag is int id && id == habitacionSeleccionadaId.Value)
+                        {
+                            roomsContainer.Controls.Remove(panel);
+                            break;
+                        }
+                    }
+
                     MessageBox.Show("Habitación eliminada correctamente", "Éxito",
                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Resetear selección
                     habitacionSeleccionadaId = null;
                 }
                 catch (Exception ex)
@@ -484,22 +507,59 @@ namespace Proyecto_PED.Views.Habitaciones
                 }
             }
         }
+        private void ActualizarCard(HabitacionItem habitacion)
+        {
+            // Buscar la card existente
+            for (int i = 0; i < roomsContainer.Controls.Count; i++)
+            {
+                if (roomsContainer.Controls[i] is Guna2Panel panel && panel.Tag is int id && id == habitacion.Id)
+                {
+                    // Guardar la posición actual
+                    int indice = i;
 
+                    // Crear nueva card con los datos actualizados
+                    var nuevaCard = CrearCardHabitacion(habitacion);
+
+                    // Eliminar la card antigua
+                    roomsContainer.Controls.RemoveAt(indice);
+
+                    // Insertar la nueva card en la misma posición
+                    roomsContainer.Controls.Add(nuevaCard);
+                    roomsContainer.Controls.SetChildIndex(nuevaCard, indice);
+
+                    // Si era la seleccionada, mantener la selección
+                    if (habitacionSeleccionadaId == habitacion.Id)
+                    {
+                        SeleccionarHabitacion(nuevaCard, habitacion.Id);
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        // Modificar el método MostrarFormularioHabitacion
         private void MostrarFormularioHabitacion(int idHabitacion = 0)
         {
-            // Si es modificación (id > 0) pero no hay selección, no hacer nada
             if (idHabitacion > 0 && !habitacionSeleccionadaId.HasValue)
                 return;
 
-            // Si es modificación, usar el ID seleccionado
             var idAEditar = idHabitacion == 0 ? idHabitacion : habitacionSeleccionadaId.Value;
 
             var formHabitacion = new RoomForm(idAEditar);
             if (formHabitacion.ShowDialog() == DialogResult.OK)
             {
-                CargarHabitaciones();
+                if (idAEditar == 0)
+                {
+                    // Para nueva habitación, recargar todas (o implementar lógica para añadir solo la nueva)
+                    CargarHabitaciones();
+                }
+                else
+                {
+                    // Para modificación, actualizar solo la card afectada
+                    CargarHabitaciones(idAEditar);
+                }
 
-                // Resetear selección después de modificar
                 habitacionSeleccionadaId = null;
             }
         }

@@ -9,6 +9,7 @@ using static Guna.UI2.WinForms.Suite.Descriptions;
 
 using Proyecto_PED.Views.Clientes;
 using Proyecto_PED.Views.Habitaciones;
+using Proyecto_PED.Views.Reservaciones;
 
 
 namespace Proyecto_PED.Views
@@ -153,6 +154,7 @@ namespace Proyecto_PED.Views
             var btnCheckIn = CrearBotonSubMenu("Check-In");
             var btnCheckOut = CrearBotonSubMenu("Check-Out");
 
+            btnNuevaReserva.Click += (s, e) => MostrarVistaNuevaReserva();
             btnCheckIn.Click += (s, e) => MostrarVistaCheckIn();
 
             subMenuPanel.Controls.Add(btnCheckOut);
@@ -203,6 +205,15 @@ namespace Proyecto_PED.Views
                 },
                 BackColor = Color.FromArgb(61, 61, 86)
             };
+        }
+
+        private void MostrarVistaNuevaReserva()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var nuevaReservaView = new ReservationView(usuarioActual, rolActual, ObtenerIdUsuarioActual());
+            CargarVistaEnPanel(nuevaReservaView);
         }
 
         private void MostrarSubMenuReservaciones()

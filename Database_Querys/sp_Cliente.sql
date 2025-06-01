@@ -4,7 +4,7 @@ DELIMITER //
 CREATE PROCEDURE sp_CreateClient(
     IN p_nombre VARCHAR(100),
     IN p_apellido VARCHAR(100),
-    IN p_tipo_documento ENUM('DNI', 'Pasaporte', 'Carnet Extranjería', 'Otro'),
+    IN p_tipo_documento ENUM('DUI', 'Pasaporte', 'Carnet Extranjería', 'Otro'),
     IN p_documento_identidad VARCHAR(20),
     IN p_telefono VARCHAR(20),
     IN p_correo VARCHAR(100)
@@ -23,7 +23,7 @@ CREATE PROCEDURE sp_UpdateClient(
     IN p_id INT,
     IN p_nombre VARCHAR(100),
     IN p_apellido VARCHAR(100),
-    IN p_tipo_documento ENUM('DNI', 'Pasaporte', 'Carnet Extranjería', 'Otro'),
+    IN p_tipo_documento ENUM('DUI', 'Pasaporte', 'Carnet Extranjería', 'Otro'),
     IN p_documento_identidad VARCHAR(20),
     IN p_telefono VARCHAR(20),
     IN p_correo VARCHAR(100)

@@ -1,4 +1,4 @@
-﻿namespace Proyecto_PED.Views
+﻿namespace Proyecto_PED.Views.Checks
 {
     partial class CheckInView
     {

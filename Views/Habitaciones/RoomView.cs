@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using Guna.UI2.WinForms;
+﻿using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
 using Proyecto_PED.Models;
+using System.Data;
 
 namespace Proyecto_PED.Views.Habitaciones
 {
@@ -103,7 +100,8 @@ namespace Proyecto_PED.Views.Habitaciones
                 Margin = new Padding(0, 0, 10, 0)
             };
 
-            txtBusqueda.KeyPress += (s, e) => {
+            txtBusqueda.KeyPress += (s, e) =>
+            {
                 if (e.KeyChar == (char)Keys.Enter)
                     BuscarHabitaciones();
             };
@@ -143,7 +141,8 @@ namespace Proyecto_PED.Views.Habitaciones
                 Animated = true,
                 Enabled = false
             };
-            btnModificarHabitacion.Click += (s, e) => {
+            btnModificarHabitacion.Click += (s, e) =>
+            {
                 if (habitacionSeleccionadaId.HasValue)
                     MostrarFormularioHabitacion(habitacionSeleccionadaId.Value);
             };
@@ -420,8 +419,6 @@ namespace Proyecto_PED.Views.Habitaciones
             }
         }
 
-
-
         private void BuscarHabitaciones()
         {
             try
@@ -507,6 +504,7 @@ namespace Proyecto_PED.Views.Habitaciones
                 }
             }
         }
+
         private void ActualizarCard(HabitacionItem habitacion)
         {
             // Buscar la card existente

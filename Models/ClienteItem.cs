@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Proyecto_PED.Models
+﻿namespace Proyecto_PED.Models
 {
     internal class ClienteItem
     {
@@ -14,7 +8,7 @@ namespace Proyecto_PED.Models
         public override string ToString()
         {
             return Nombre;
-            
+
         }
     }
 }

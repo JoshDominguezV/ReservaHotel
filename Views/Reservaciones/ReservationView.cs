@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using Guna.UI2.WinForms;
+﻿using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
 using Proyecto_PED.Views.Clientes;
+using System.Data;
 
 namespace Proyecto_PED.Views.Reservaciones
 {
@@ -42,6 +39,8 @@ namespace Proyecto_PED.Views.Reservaciones
         private Label lblTotalServicios;
         private Label lblTotalGeneral;
         private decimal precioTotalServicios = 0;
+
+        public Action OnReservaGuardada { get; set; }
 
         public ReservationView(string usuario, string rol, int idUsuario)
         {
@@ -117,7 +116,8 @@ namespace Proyecto_PED.Views.Reservaciones
                 Font = new Font("Segoe UI", 10),
                 BorderColor = Color.FromArgb(200, 200, 200)
             };
-            txtBusquedaCliente.KeyPress += (s, e) => {
+            txtBusquedaCliente.KeyPress += (s, e) =>
+            {
                 if (e.KeyChar == (char)Keys.Enter)
                     BuscarClientes();
             };
@@ -152,7 +152,8 @@ namespace Proyecto_PED.Views.Reservaciones
                 Margin = new Padding(0, 10, 0, 10)
             };
             dgvClientes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-            dgvClientes.SelectionChanged += (s, e) => {
+            dgvClientes.SelectionChanged += (s, e) =>
+            {
                 if (dgvClientes.SelectedRows.Count > 0)
                 {
                     clienteSeleccionadoId = Convert.ToInt32(dgvClientes.SelectedRows[0].Cells["Id"].Value);
@@ -519,7 +520,8 @@ namespace Proyecto_PED.Views.Reservaciones
                 Margin = new Padding(0, 0, 0, 10)
             };
             dgvServicios.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-            dgvServicios.SelectionChanged += (s, e) => {
+            dgvServicios.SelectionChanged += (s, e) =>
+            {
                 btnEliminarServicio.Enabled = dgvServicios.SelectedRows.Count > 0;
             };
 
@@ -979,6 +981,7 @@ namespace Proyecto_PED.Views.Reservaciones
                     MessageBox.Show($"Reserva creada exitosamente. N° {reservaId}", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    OnReservaGuardada?.Invoke();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -1133,5 +1136,6 @@ namespace Proyecto_PED.Views.Reservaciones
                 lblTotalGeneral.Text = $"Total General: {totalGeneral:C2}";
             }
         }
+
     }
 }

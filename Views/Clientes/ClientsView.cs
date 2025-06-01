@@ -1,10 +1,7 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using Guna.UI2.WinForms;
+﻿using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
+using System.Data;
 
 namespace Proyecto_PED.Views.Clientes
 {
@@ -35,7 +32,7 @@ namespace Proyecto_PED.Views.Clientes
             bool tienePermiso = rolActual == "Administrador" || rolActual == "Recepcionista";
 
             btnNuevoCliente.Enabled = tienePermiso;
-            btnEliminarCliente.Visible = rolActual == "Administrador"; 
+            btnEliminarCliente.Visible = rolActual == "Administrador";
         }
         private void InitializeUI()
         {
@@ -92,14 +89,15 @@ namespace Proyecto_PED.Views.Clientes
             {
                 PlaceholderText = "Buscar cliente...",
                 Width = 250,
-                Height = 36, 
+                Height = 36,
                 BorderRadius = 10,
                 Font = new Font("Segoe UI", 10),
                 BorderColor = Color.FromArgb(200, 200, 200),
                 Margin = new Padding(0, 0, 10, 0)
             };
 
-            txtBusqueda.KeyPress += (s, e) => {
+            txtBusqueda.KeyPress += (s, e) =>
+            {
                 if (e.KeyChar == (char)Keys.Enter)
                     BuscarClientes();
             };
@@ -139,7 +137,7 @@ namespace Proyecto_PED.Views.Clientes
                 ForeColor = Color.White,
                 Animated = true,
             };
-            btnEliminarCliente.Click += (s, e) => EliminarCliente(); 
+            btnEliminarCliente.Click += (s, e) => EliminarCliente();
 
             // DataGridView con estilo Guna2
             dgvClientes = new Guna2DataGridView()

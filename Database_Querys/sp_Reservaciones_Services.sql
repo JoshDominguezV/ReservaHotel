@@ -179,4 +179,21 @@ BEGIN
     DELETE FROM servicios_reserva WHERE id = p_id;
 END //
 
+-- SP para obtener servicios adicionales disponibles
+CREATE PROCEDURE sp_GetAvailableServices()
+BEGIN
+    SELECT 
+        id, 
+        nombre, 
+        descripcion, 
+        precio 
+    FROM 
+        servicios_adicionales
+    WHERE 
+        activo = TRUE
+    ORDER BY 
+        nombre;
+END //
+
+
 DELIMITER ;

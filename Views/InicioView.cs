@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace Proyecto_PED.Views
+﻿namespace Proyecto_PED.Views
 {
     public partial class InicioView : Form
     {
@@ -22,6 +10,9 @@ namespace Proyecto_PED.Views
 
         private void ConstruirInterfaz(string usuario, string rol)
         {
+            string devone = "Tec. Josué Naum Domínguez Velásquez";
+            string devtwo = "Tec. Kevin Armando Lemus Alas";
+
             this.BackColor = Color.White;
 
             var lblBienvenido = new Label
@@ -42,6 +33,27 @@ namespace Proyecto_PED.Views
 
             this.Controls.Add(lblRol);
             this.Controls.Add(lblBienvenido);
+
+
+            var lbldeveloped = new Label
+            {
+                Text = "Developed by:",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                AutoSize = true,
+                Location = new Point(50, 1040)
+            };
+
+            var lblDevs = new Label
+            {
+                Text = $"{devone} || {devtwo}",
+                Font = new Font("Segoe UI", 9),
+                AutoSize = true,
+                Location = new Point(50, 1060)
+            };
+
+
+            this.Controls.Add(lbldeveloped);
+            this.Controls.Add(lblDevs);
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Proyecto_PED.Views
+﻿namespace Proyecto_PED.Views.Reservaciones
 {
-    partial class CheckInView
+    partial class ReservationList
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CheckInView";
+            this.Text = "ReservationList";
         }
 
         #endregion

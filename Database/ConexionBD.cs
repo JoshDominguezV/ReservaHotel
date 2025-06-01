@@ -1,7 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Proyecto_PED.Database
 {
@@ -16,52 +13,52 @@ namespace Proyecto_PED.Database
             MySqlConnection conexion = new MySqlConnection(connectionString);
             try
             {
-                conexion.Open(); 
+                conexion.Open();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("❌ Error al conectar a la base de datos: " + ex.Message, "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null; 
+                return null;
             }
 
-            return conexion; 
+            return conexion;
         }
 
-/*
-        public void ProbarConexion()
-        {
-            try
-            {
-                using (MySqlConnection conexion = ObtenerConexion())
+        /*
+                public void ProbarConexion()
                 {
-                    if (conexion != null)
+                    try
                     {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("✅ Conexión exitosa.\nUsuarios registrados:\n");
-
-                        string query = "SELECT u.id, u.nombre_usuario, r.nombre_rol FROM usuarios u JOIN roles r ON u.rol_id = r.id";
-                        MySqlCommand cmd = new MySqlCommand(query, conexion);
-                        MySqlDataReader reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
+                        using (MySqlConnection conexion = ObtenerConexion())
                         {
-                            int id = reader.GetInt32("id");
-                            string usuario = reader.GetString("nombre_usuario");
-                            string rol = reader.GetString("nombre_rol");
+                            if (conexion != null)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                sb.AppendLine("✅ Conexión exitosa.\nUsuarios registrados:\n");
 
-                            sb.AppendLine($"🧑 ID: {id}, Usuario: {usuario}, Rol: {rol}");
+                                string query = "SELECT u.id, u.nombre_usuario, r.nombre_rol FROM usuarios u JOIN roles r ON u.rol_id = r.id";
+                                MySqlCommand cmd = new MySqlCommand(query, conexion);
+                                MySqlDataReader reader = cmd.ExecuteReader();
+
+                                while (reader.Read())
+                                {
+                                    int id = reader.GetInt32("id");
+                                    string usuario = reader.GetString("nombre_usuario");
+                                    string rol = reader.GetString("nombre_rol");
+
+                                    sb.AppendLine($"🧑 ID: {id}, Usuario: {usuario}, Rol: {rol}");
+                                }
+
+                                MessageBox.Show(sb.ToString(), "Prueba de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-
-                        MessageBox.Show(sb.ToString(), "Prueba de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("❌ Error al realizar la consulta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("❌ Error al realizar la consulta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-   */
+           */
         // Método para realizar una consulta general (solo ejemplo)
         public void EjecutarConsulta(string query)
         {

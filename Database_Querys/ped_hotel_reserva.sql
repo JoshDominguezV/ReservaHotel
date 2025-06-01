@@ -75,7 +75,7 @@ CREATE TABLE clientes (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
   apellido VARCHAR(100),
-  tipo_documento ENUM('DNI', 'Pasaporte', 'Carnet Extranjería', 'Otro') DEFAULT 'DNI',
+  tipo_documento ENUM('DUI', 'Pasaporte', 'Carnet Extranjería', 'Otro') DEFAULT 'DUI',
   documento_identidad VARCHAR(20) NOT NULL,
   telefono VARCHAR(20),
   correo VARCHAR(100),
@@ -88,8 +88,8 @@ CREATE TABLE clientes (
 
 -- Insertar clientes de ejemplo
 INSERT INTO clientes (nombre, apellido, tipo_documento, documento_identidad, telefono, correo) VALUES
-('Juan', 'Pérez', 'DNI', '12345678', '555-1234', 'juan.perez@example.com'),
-('María', 'García', 'DNI', '87654321', '555-5678', 'maria.garcia@example.com'),
+('Juan', 'Pérez', 'DUI', '12345678', '555-1234', 'juan.perez@example.com'),
+('María', 'García', 'DUI', '87654321', '555-5678', 'maria.garcia@example.com'),
 ('Carlos', 'López', 'Pasaporte', 'PA123456', '555-9012', 'carlos.lopez@example.com');
 
 -- Tabla de estados de reserva

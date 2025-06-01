@@ -1,8 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Guna.UI2.WinForms;
+﻿using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
 using Proyecto_PED.Views;
@@ -105,7 +101,8 @@ namespace Proyecto_PED.Auth
                 Cursor = Cursors.IBeam,
                 BorderColor = Color.FromArgb(70, 70, 90)
             };
-            txtUsuario.KeyDown += (s, e) => {
+            txtUsuario.KeyDown += (s, e) =>
+            {
                 if (e.KeyCode == Keys.Enter) txtContrasena.Focus();
             };
 
@@ -123,7 +120,8 @@ namespace Proyecto_PED.Auth
                 BorderColor = Color.FromArgb(70, 70, 90),
                 UseSystemPasswordChar = true
             };
-            txtContrasena.KeyDown += (s, e) => {
+            txtContrasena.KeyDown += (s, e) =>
+            {
                 if (e.KeyCode == Keys.Enter) btnLogin.PerformClick();
             };
 

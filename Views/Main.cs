@@ -1,14 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using Proyecto_PED.Database;
-using Proyecto_PED.Views;
-
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using static Guna.UI2.WinForms.Suite.Descriptions;
-
+using Proyecto_PED.Views.Checks;
 using Proyecto_PED.Views.Clientes;
 using Proyecto_PED.Views.Habitaciones;
+using Proyecto_PED.Views.Reservaciones;
 
 
 namespace Proyecto_PED.Views
@@ -119,17 +114,17 @@ namespace Proyecto_PED.Views
 
             // Botones principales
             var btnInicio = CrearBotonMenu("Inicio", null);
-            var btnReservaciones = CrearBotonMenu("Reservaciones", null);
             var btnClientes = CrearBotonMenu("Clientes", null);
             var btnHabitaciones = CrearBotonMenu("Habitaciones", null);
+            var btnReservaciones = CrearBotonMenu("Reservaciones", null);
             var btnGestionUsuarios = CrearBotonMenu("Usuarios", null);
             var btnCerrarSesion = CrearBotonMenu("Cerrar Sesión", null);
 
             // Eventos
             btnInicio.Click += (s, e) => MostrarVistaInicio();
-            btnReservaciones.Click += (s, e) => MostrarSubMenuReservaciones();
             btnClientes.Click += (s, e) => MostrarVistaClientes();
             btnHabitaciones.Click += (s, e) => MostrarVistaHabitaciones();
+            btnReservaciones.Click += (s, e) => MostrarSubMenuReservaciones();
             btnGestionUsuarios.Click += (s, e) => MostrarVistaUsuarios();
             btnCerrarSesion.Click += (s, e) => this.Close();
 
@@ -153,7 +148,10 @@ namespace Proyecto_PED.Views
             var btnCheckIn = CrearBotonSubMenu("Check-In");
             var btnCheckOut = CrearBotonSubMenu("Check-Out");
 
+            btnNuevaReserva.Click += (s, e) => MostrarVistaNuevaReserva();
+            btnListaReservas.Click += (s, e) => MostrarVistaListaReservas();
             btnCheckIn.Click += (s, e) => MostrarVistaCheckIn();
+            btnCheckOut.Click += (s, e) => MostrarVistaCheckOut();
 
             subMenuPanel.Controls.Add(btnCheckOut);
             subMenuPanel.Controls.Add(btnCheckIn);
@@ -205,6 +203,65 @@ namespace Proyecto_PED.Views
             };
         }
 
+        private void MostrarVistaNuevaReserva()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var nuevaReservaView = new ReservationView(usuarioActual, rolActual, ObtenerIdUsuarioActual());
+
+            // Configurar callback
+            nuevaReservaView.OnReservaGuardada = () =>
+            {
+                MostrarVistaInicio();
+            };
+
+            CargarVistaEnPanel(nuevaReservaView);
+        }
+
+        private void MostrarVistaListaReservas()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            var listaReservasView = new ReservationList(usuarioActual, rolActual);
+            CargarVistaEnPanel(listaReservasView);
+        }
+
+        private void MostrarVistaCheckIn()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            int usuarioId = ObtenerIdUsuarioActual();
+            if (usuarioId == -1)
+            {
+                MessageBox.Show("No se pudo obtener el ID del usuario actual", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var checkInView = new CheckInView(usuarioId);
+            CargarVistaEnPanel(checkInView);
+        }
+
+        private void MostrarVistaCheckOut()
+        {
+            LimpiarContentPanel();
+            OcultarSubMenu();
+
+            int usuarioId = ObtenerIdUsuarioActual();
+            if (usuarioId == -1)
+            {
+                MessageBox.Show("No se pudo obtener el ID del usuario actual", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var checkOutView = new CheckOutView(usuarioId);
+            CargarVistaEnPanel(checkOutView);
+        }
+
         private void MostrarSubMenuReservaciones()
         {
             subMenuPanel.Width = subMenuPanel.Width == subMenuWidth ? 0 : subMenuWidth;
@@ -219,6 +276,7 @@ namespace Proyecto_PED.Views
             var clientesView = new ClientsView(usuarioActual, rolActual);
             CargarVistaEnPanel(clientesView);
         }
+
         private void MostrarVistaHabitaciones()
         {
             LimpiarContentPanel();
@@ -244,15 +302,6 @@ namespace Proyecto_PED.Views
 
             var usuariosView = new UsuariosView(usuarioActual, rolActual);
             CargarVistaEnPanel(usuariosView);
-        }
-
-        private void MostrarVistaCheckIn()
-        {
-            LimpiarContentPanel();
-            OcultarSubMenu();
-
-            var checkInView = new CheckInView(conexionBD, ObtenerIdUsuarioActual());
-            CargarVistaEnPanel(checkInView);
         }
 
         private void CargarVistaEnPanel(Form vista)

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
-using Guna.UI2.WinForms;
 using Proyecto_PED.Database;
 using Proyecto_PED.Models;
+using System.Data;
 
 namespace Proyecto_PED.Views
 {
